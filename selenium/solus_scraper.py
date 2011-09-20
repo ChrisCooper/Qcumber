@@ -2,8 +2,9 @@ from selenium import selenium
 import unittest, time, re
 
 def wait_then_click(sel, identifier):
-    if not sel.check(identifier):
-        sleep(3)
+    if not sel.is_element_present(identifier):
+        print "Login button not present. Waiting 3 seconds..."
+        time.sleep(3)
     sel.click(identifier)
 
 class selenium_export(unittest.TestCase):
@@ -16,6 +17,7 @@ class selenium_export(unittest.TestCase):
         sel = self.selenium
         sel.open("/amserver/UI/Login")
         
+        #Get login information from config file
         with open('../ignored_files/selenium_config.txt', 'r') as config_file:
             line_num = 0
             login_info = ['','']
