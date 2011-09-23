@@ -2,7 +2,7 @@ from selenium import selenium
 import unittest, time, re
 
 def wait_then_click(sel, identifier):
-    if not sel.is_element_present(identifier):
+    while not sel.is_element_present(identifier):
         print "Login button not present. Waiting 3 seconds..."
         time.sleep(3)
     sel.click(identifier)
@@ -23,30 +23,40 @@ class selenium_export(unittest.TestCase):
             login_info = ['','']
             for line in config_file:
                 login_info[line_num] = line.strip()
+                line_num += 1
                 
                 
+        #Enter Credentials
         sel.type("id=IDToken1", login_info[0])
         sel.type("id=IDToken2", login_info[1])
+        
+        #Log in
         sel.click("name=Login.Submit")
         sel.wait_for_page_to_load("30000")
         
-        wait_then_click(sel, "link=SOLUS Student Centre")
+        #Get URL for SOLUS and open it
+        solus_url = sel.get_attribute("link=SOLUS Student Centre@href")
+        sel.open(solus_url)
         
-        #Ignore the alert
-        sel.get_alert()
+        #Get to content frame
+        sel.select_frame("name=TargetContent")
         
-        sel.wait_for_popup("30000")
-        
-        #get the popup
-        sel.select_window()
-        
-        sel.select_frame("TargetContent")
+        #"Search For Classes"
         sel.click("id=DERIVED_SSS_SCL_SSS_GO_4$229$")
         sel.wait_for_page_to_load("30000")
+        
+        #"browse course catalog"
         sel.click("link=browse course catalog")
         sel.wait_for_page_to_load("30000")
+        
+        
+        print "Navigation to SOLUS complete. Beginning scraping..."    
+        
+        return
+        
         sel.click("id=DERIVED_SSS_BCC_SSR_ALPHANUM_A")
         sel.wait_for_page_to_load("30000")
+        
         sel.click("name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$0")
         sel.wait_for_page_to_load("30000")
         sel.click("id=CRSE_TITLE$0")
