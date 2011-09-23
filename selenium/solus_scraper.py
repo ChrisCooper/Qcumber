@@ -50,15 +50,60 @@ class selenium_export(unittest.TestCase):
         sel.wait_for_page_to_load("30000")
         
         
-        print "Navigation to SOLUS complete. Beginning scraping..."    
+        print "Navigation to SOLUS complete. Beginning scraping..."
         
-        return
+        alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         
-        sel.click("id=DERIVED_SSS_BCC_SSR_ALPHANUM_A")
+        for alphanum in alphanums:
+            self.scrape_courses_for_alphanum(alphanum)
+        
+    def scrape_courses_for_alphanum(self, alphanum):
+        sel = self.selenium
+        sel.click("id=DERIVED_SSS_BCC_SSR_ALPHANUM_" + alphanum)
         sel.wait_for_page_to_load("30000")
         
-        sel.click("name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$0")
-        sel.wait_for_page_to_load("30000")
+        
+        #Prepare to traverse all links
+        link_number = 0
+        link_name_base = "name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$%d"
+        link_name = link_name_base % (link_number,)
+        
+        while sel.is_element_present(link_name):
+            sel.click(link_name)
+            sel.wait_for_page_to_load("30000")
+            
+            self.scrape_single_dropdown()
+            
+            sel.click(link_name)
+            sel.wait_for_page_to_load("30000")
+            
+            link_number += 1
+            link_name = link_name_base % (link_number,)
+        
+    
+    def scrape_single_dropdown(self):
+        sel = self.selenium
+        
+        #Prepare to traverse all links
+        link_number = 0
+        link_name_base = "id=CRSE_TITLE$%d"
+        link_name = link_name_base % (link_number,)
+        
+        while sel.is_element_present(link_name):
+            sel.click(link_name)
+            sel.wait_for_page_to_load("30000")
+            
+            self.scrape_single_course()
+            
+            link_number += 1
+            link_name = link_name_base % (link_number,)
+    
+    def scrape_single_course(self):
+        sel = self.selenium
+        
+        time.sleep(2)
+    
+    def uncopied(self):
         sel.click("id=CRSE_TITLE$0")
         sel.wait_for_page_to_load("30000")
         sel.click("id=DERIVED_SAA_CRS_RETURN_PB")
