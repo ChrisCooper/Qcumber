@@ -126,7 +126,40 @@ class selenium_export(unittest.TestCase):
         course.num = m.group(2)
         course.title = m.group(3)
 
+        print ""
         print "%s %s - %s" % (course.subject, course.num, course.title)
+
+
+        #Course detail box        
+        #raw_course_detail_box = sel.get_text("class=PSGROUPBOX").strip()
+        #m = re.search('^Career(.*)Units(.*)Grading Basis\s+(\S*)\s*(.*)\s+Course Components$', raw_course_detail_box)
+
+        #course.career = m.group(1).strip()
+        #course.units = m.group(2).strip()
+        #course.grading_basis = m.group(3).strip()
+        #course.course_components = m.group(4).strip()
+        
+        
+        SSSGROUPBOXLTBLUE
+        
+        
+        test_words = ["Course Detail", "Career", "Units", "Grading Basis", "Course Components", "Enrollment Information", "Typically Offered", "Enrollment Requirement", "Description", "", "", "", "",]
+        
+        for word in test_words:
+            if not sel.is_text_present(word):
+                print "Missing \"%s\"" % word
+        
+        return
+        
+        
+        #Check for "view class sections"
+        if sel.is_element_present("id=DERIVED_SAA_CRS_SSR_PB_GO"):
+            sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
+            
+            self.scrape_sections()
+        
+    def scrape_sections(self):
+        pass
     
     def uncopied(self):
         sel.click("id=CRSE_TITLE$0")
@@ -164,3 +197,12 @@ class selenium_export(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+
+
+#test_words = ["Course Detail", "Career", "Units", "Grading Basis", "Course Components", "Enrollment Information", "Typically Offered", "Enrollment Requirement", "Description", "", "", "", "",]
+        
+#for word in test_words:
+#    if not sel.is_text_present(word):
+#        print "Missing \"%s\"" % word
