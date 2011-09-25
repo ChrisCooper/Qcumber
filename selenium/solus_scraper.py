@@ -238,9 +238,11 @@ class selenium_export(unittest.TestCase):
         
         while len(section_pieces) > 0:
             section = SolusModels.Section()
+            self.course.sections.append(section)
+            
             self.scrape_single_section(section_pieces, section)
             
-            self.course.sections.append(section)
+            
         
     def section_pieces_from_page(self):
         sel = self.selenium
@@ -262,16 +264,27 @@ class selenium_export(unittest.TestCase):
     def scrape_single_section(self, piece_array, section):
         while not self.next_row_is_section_header(piece_array):
             timeslot = SolusModels.Timeslot()
-            self.scrape_single_timeslot(piece_array, timeslot)
             section.timeslots.append(timeslot)
+            
+            self.scrape_single_timeslot(piece_array, timeslot)
         
         self.scrape_section_header(piece_array, section)
     
     
     def next_row_is_section_header(self, piece_array):
-        return piece_array[-1] == "Select"
+        if piece_array[-1] == "Select":
+            return True
+        
+        for i in range (-1, -6, -1):
+            if re.search('^([\S]+)-([\S]+)\s+\((\S+)\)$', piece_array[i]):
+                return True
+        
+        return False
     
     def scrape_single_timeslot(self, piece_array, timeslot):
+        if len(piece_array) < 6:
+            import pdb; pdb.set_trace()
+        
         timeslot.date_range = piece_array.pop()
         timeslot.instructor = piece_array.pop()
         timeslot.room = piece_array.pop()
