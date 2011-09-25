@@ -1,6 +1,6 @@
 from selenium import selenium
 import unittest, time, re
-from SolusModels import SolusCourse
+import SolusModels
 
 def wait_then_click(sel, identifier):
     while not sel.is_element_present(identifier):
@@ -57,9 +57,14 @@ class selenium_export(unittest.TestCase):
         
         
         #Go through all the course catalogue pages
-        alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        #alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        alphanums = "AB"
         for alphanum in alphanums:
             self.scrape_courses_for_alphanum(alphanum)
+        
+        print "Scraped a total of %d courses" % SolusModels.Course.num_courses
+        
+        import pdb; pdb.set_trace()
         
     def scrape_courses_for_alphanum(self, alphanum):
         sel = self.selenium
@@ -81,7 +86,12 @@ class selenium_export(unittest.TestCase):
             self.scrape_single_dropdown()
             
             #Close the dropdown
-            sel.click(link_name)
+            try:
+                sel.click(link_name)
+            except:
+                print "FAILURE %s" % link_name
+                time.sleep(100)
+                
             sel.wait_for_page_to_load("30000")
             
             #Go to next link
@@ -116,80 +126,171 @@ class selenium_export(unittest.TestCase):
     def scrape_single_course(self):
         sel = self.selenium
         
-        course = SolusCourse()
+        self.course = SolusModels.SolusCourse()
+        self.courses.append(self.course)
         
         raw_title = sel.get_text("css=span.PALEVEL0SECONDARY").strip()
         
         m = re.search('^([\S]+)\s+([\S]+)\s+-\s+(.*)$', raw_title)
         
-        course.subject = m.group(1)
-        course.num = m.group(2)
-        course.title = m.group(3)
+        self.course.subject = m.group(1)
+        self.course.num = m.group(2)
+        self.course.title = m.group(3)
 
         print ""
-        print "%s %s - %s" % (course.subject, course.num, course.title)
+        print "%s %s - %s" % (self.course.subject, self.course.num, self.course.title)
 
 
-        #Course detail box        
-        #raw_course_detail_box = sel.get_text("class=PSGROUPBOX").strip()
-        #m = re.search('^Career(.*)Units(.*)Grading Basis\s+(\S*)\s*(.*)\s+Course Components$', raw_course_detail_box)
+        titles = []
+        title_locator_formats = ["xpath=(//label[@class='PSDROPDOWNLABEL'])[%d]", "xpath=(//label[@class='PSEDITBOXLABEL'])[%d]"]
+        
+        values = []
+        value_locator_formats = ["xpath=(//span[@class='PSDROPDOWNLIST_DISPONLY'])[%d]","xpath=(//span[@class='PSEDITBOX_DISPONLY'])[%d]"]
+        
+        for format in title_locator_formats:
+            self.add_entries_for_position(titles, format)
+        
+        
+        for format in value_locator_formats:
+            self.add_entries_for_position(values, format)
+        
+        
+        info_mappings = {}
+        
+        for (value_text, value_pos) in values:
+            best_diff = 10000
+            best_text = None
+            for (title_text, title_pos) in titles:
+                diff = abs(title_pos - value_pos)
+                if value_pos > title_pos - 5 and diff < best_diff:
+                    best_diff = diff
+                    best_text = title_text
+                
+            if best_text:
+                if best_text in info_mappings:
+                    info_mappings[best_text] += " " + value_text
+                else:
+                    info_mappings[best_text] = value_text
+            else:
+                print "No match for %s" % value_text
 
-        #course.career = m.group(1).strip()
-        #course.units = m.group(2).strip()
-        #course.grading_basis = m.group(3).strip()
-        #course.course_components = m.group(4).strip()
+        #for key in info_mappings:
+            #print "%s: %s" % (key, info_mappings[key])
         
-        
-        SSSGROUPBOXLTBLUE
-        
-        
-        test_words = ["Course Detail", "Career", "Units", "Grading Basis", "Course Components", "Enrollment Information", "Typically Offered", "Enrollment Requirement", "Description", "", "", "", "",]
-        
-        for word in test_words:
-            if not sel.is_text_present(word):
-                print "Missing \"%s\"" % word
-        
-        return
+        description_locator = "xpath=(//span[@class='PSLONGEDITBOX'])[1]"
+        if sel.is_element_present(description_locator):
+            self.course.description = sel.get_text(description_locator)
+            #print "Description: %s" % course.description
         
         
         #Check for "view class sections"
         if sel.is_element_present("id=DERIVED_SAA_CRS_SSR_PB_GO"):
+            
             sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
+            sel.wait_for_page_to_load("30000")
             
             self.scrape_sections()
         
-    def scrape_sections(self):
-        pass
     
-    def uncopied(self):
-        sel.click("id=CRSE_TITLE$0")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=DERIVED_SAA_CRS_RETURN_PB")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=CRSE_TITLE$8")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=DERIVED_SAA_CRS_RETURN_PB")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=DERIVED_SSS_BCC_SSR_ALPHANUM_B")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=DERIVED_SSS_BCC_GROUP_BOX_1$84$$1")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=CRSE_TITLE$8")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
-        sel.wait_for_page_to_load("30000")
-        sel.click("name=CLASS_TBL_VW5$fdown$img$0")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=DERIVED_SAA_CRS_RETURN_PB")
-        sel.wait_for_page_to_load("30000")
-        sel.click("name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$1")
-        sel.wait_for_page_to_load("30000")
-        sel.click("name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$2")
-        sel.wait_for_page_to_load("30000")
-        sel.click("id=CRSE_TITLE$0")
-        sel.wait_for_page_to_load("30000")
+    def add_entries_for_position(self, lis, locator_format_string):
+        sel = self.selenium
+        index = 1
+        locator = locator_format_string % index
+        while sel.is_element_present(locator):
+            lis.append((sel.get_text(locator).strip(), sel.get_element_position_top(locator)))
+                    
+            index += 1
+            locator = locator_format_string % index
+     
+    def scrape_sections(self):
+        sel = self.selenium
+        
+        term_options = sel.get_select_options("id=DERIVED_SAA_CRS_TERM_ALT")
+        
+        for option in term_options:
+            if not len(term_options) == 1:
+                sel.select("id=DERIVED_SAA_CRS_TERM_ALT", "label=%s" % option)
+                sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO$92$")
+                sel.wait_for_page_to_load("30000")
+            
+            self.scrape_term()
+    
+    def scrape_term(self):
+        sel = self.selenium
+        
+        next_button_locator = "name=CLASS_TBL_VW5$fdown$img$0"
+        image_url = "/cs/saself/cache/PT_NEXTROW_1.gif"
+        
+        while True:
+            self.scrape_section_page()
+            
+            image_url = sel.get_attribute("%s@src" % next_button_locator)
+            
+            if image_url == "/cs/saself/cache/PT_NEXTROW_1.gif":
+                sel.click(next_button_locator)
+                sel.wait_for_page_to_load("30000")
+            else:
+                break    
+    
+    def scrape_section_page(self):
+        
+        section_pieces = self.section_pieces_from_page()
+        
+        while len(section_pieces) > 0:
+            section = SolusModels.Section()
+            self.scrape_single_section(section_pieces, section)
+            
+            self.course.sections.append(section)
+        
+    def section_pieces_from_page(self):
+        sel = self.selenium
+        
+        section_pieces = []
+        index = 1
+        locator_format = "xpath=(//td[@class='PSLEVEL2GRIDROW'])[%d]"
+        locator = locator_format % index
+                
+        while sel.is_element_present(locator):
+            
+            section_pieces.append(sel.get_text(locator).strip())
+            
+            index += 1
+            locator = locator_format % index
+        
+        return section_pieces
+    
+    def scrape_single_section(self, piece_array, section):
+        while not self.next_row_is_section_header(piece_array):
+            timeslot = SolusModels.Timeslot()
+            self.scrape_single_timeslot(piece_array, timeslot)
+            section.timeslots.append(timeslot)
+        
+        self.scrape_section_header(piece_array, section)
+    
+    
+    def next_row_is_section_header(self, piece_array):
+        return piece_array[-1] == "Select"
+    
+    def scrape_single_timeslot(self, piece_array, timeslot):
+        timeslot.date_range = piece_array.pop()
+        timeslot.instructor = piece_array.pop()
+        timeslot.room = piece_array.pop()
+        timeslot.end = piece_array.pop()
+        timeslot.start = piece_array.pop()
+        timeslot.day = piece_array.pop()
+    
+    def scrape_section_header(self, piece_array, section):
+        section_info = piece_array.pop()
+        m = re.search('^([\S]+)-([\S]+)\s+\((\S+)\)$', section_info)
+        
+        while not m:
+            section_info = piece_array.pop()
+            m = re.search('^([\S]+)-([\S]+)\s+\((\S+)\)$', section_info)
+        
+        section.index = m.group(1)
+        section.type = m.group(2)
+        section.id = m.group(3)
+            
     
     def tearDown(self):
         self.selenium.stop()
@@ -199,10 +300,3 @@ if __name__ == "__main__":
     unittest.main()
 
 
-
-
-#test_words = ["Course Detail", "Career", "Units", "Grading Basis", "Course Components", "Enrollment Information", "Typically Offered", "Enrollment Requirement", "Description", "", "", "", "",]
-        
-#for word in test_words:
-#    if not sel.is_text_present(word):
-#        print "Missing \"%s\"" % word

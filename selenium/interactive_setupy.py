@@ -1,6 +1,6 @@
 from selenium import selenium
 import unittest, time, re
-from SolusModels import SolusCourse
+import SolusModels
 
 verificationErrors = []
 sel = selenium("localhost", 4444, "*chrome", "https://sso.queensu.ca/amserver/UI/Login")
@@ -44,12 +44,12 @@ print "Navigation to SOLUS complete. Beginning scraping..."
 
 
 
-sel.click("id=DERIVED_SSS_BCC_SSR_ALPHANUM_C")
+sel.click("id=DERIVED_SSS_BCC_SSR_ALPHANUM_B")
 sel.wait_for_page_to_load("30000")
         
 #Prepare to traverse all links
 link_number = 0
-link_name_base = "name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$6"
+link_name_base = "name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$1"
 link_name = link_name_base
         
 sel.click(link_name)
@@ -60,7 +60,7 @@ sel.wait_for_page_to_load("30000")
         
 #Prepare to traverse all links
 link_number = 0
-link_name_base = "id=CRSE_TITLE$10"
+link_name_base = "id=CRSE_TITLE$8"
 link_name = link_name_base
         
 #Go into the course
@@ -68,7 +68,7 @@ sel.click(link_name)
 sel.wait_for_page_to_load("30000")
             
         
-course = SolusCourse()
+course = SolusModels.SolusCourse()
         
 raw_title = sel.get_text("css=span.PALEVEL0SECONDARY").strip()
         
@@ -82,39 +82,127 @@ print "%s %s - %s" % (course.subject, course.num, course.title)
 
 
 
-   #
-   #
-   # USE (X,Y) COORDINATES OF THE FOLLOWING TO FIGURE OUT WHICH VALUE CORRESPONDS TO WHICH TITLE
-   #
-   #
-
-#titles
-sel.get_text("xpath=(//label[@class='PSDROPDOWNLABEL'])[1]")
-sel.get_text("xpath=(//label[@class='PSEDITBOXLABEL'])[1]")
-
-#values
-sel.get_text("xpath=(//span[@class='PSDROPDOWNLIST_DISPONLY'])[1]")
-sel.get_text("xpath=(//span[@class='PSEDITBOX_DISPONLY'])[1]")
-
-#description
-sel.get_text("xpath=(//span[@class='PSLONGEDITBOX'])[1]")
-
-#Seems to get full page text
-#sel.get_text("id=ACE_width")
-
-#Career Undergraduate Units 3.00 Grading Basis Graded Laboratory Required Lecture Required Course Components
-raw_course_detail_box = sel.get_text("class=PSGROUPBOX").strip()
-
-m = re.search('^Career(.*)Units(.*)Grading Basis\s+(\S*)\s*(.*)\s+Course Components$', raw_course_detail_box)
-
-course.career = m.group(1).strip()
-course.units = m.group(2).strip()
-course.grading_basis = m.group(3).strip()
-course.course_components = m.group(4).strip()
-
-raw_enrollment_information_box = sel.get_text("class=PSGROUPBOXNBO").strip()
 
 
-#Check for "view class sections"
-if sel.is_element_present("id=DERIVED_SAA_CRS_SSR_PB_GO"):
-        sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
+titles = []
+title_locator_formats = ["xpath=(//label[@class='PSDROPDOWNLABEL'])[%d]", "xpath=(//label[@class='PSEDITBOXLABEL'])[%d]"]
+
+values = []
+value_locator_formats = ["xpath=(//span[@class='PSDROPDOWNLIST_DISPONLY'])[%d]","xpath=(//span[@class='PSEDITBOX_DISPONLY'])[%d]"]
+
+
+def add_entries_for_position(sel, lis, locator_format_string):
+    index = 1
+    locator = locator_format_string % index
+    while sel.is_element_present(locator):
+        lis.append((sel.get_text(locator).strip(), sel.get_element_position_top(locator)))
+            
+        index += 1
+        locator = locator_format_string % index
+
+
+
+
+for format in title_locator_formats:
+    add_entries_for_position(sel, titles, format)
+
+
+for format in value_locator_formats:
+    add_entries_for_position(sel, values, format)
+
+
+info_mappings = {}
+
+for (value_text, value_pos) in values:
+    best_diff = 10000
+    best_text = None
+    for (title_text, title_pos) in titles:
+        diff = abs(title_pos - value_pos)
+        if value_pos > title_pos - 5 and diff < best_diff:
+            best_diff = diff
+            best_text = title_text
+        
+    if best_text:
+        if best_text in info_mappings:
+            info_mappings[best_text] += " " + value_text
+        else:
+            info_mappings[best_text] = value_text
+    else:
+        print "No match for %s" % value_text
+
+for key in info_mappings:
+    print "%s: %s" % (key, info_mappings[key])
+
+description_locator = "xpath=(//span[@class='PSLONGEDITBOX'])[1]"
+if sel.is_element_present(description_locator):
+    course.description = sel.get_text(description_locator)
+    #print "Description: %s" % course.description
+
+sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
+sel.wait_for_page_to_load("30000")
+
+
+
+
+
+section_pieces = []
+
+index = 1
+
+locator_format = "xpath=(//td[@class='PSLEVEL2GRIDROW'])[%d]"
+locator = locator_format % index
+        
+while sel.is_element_present(locator):
+    
+    section_pieces.append(sel.get_text(locator).strip())
+    
+    index += 1
+    locator = locator_format % index
+
+
+
+def scrape_single_section(piece_array, section):
+    while not next_row_is_section_header(piece_array):
+        timeslot = SolusModels.Timeslot()
+        scrape_single_timeslot(piece_array, timeslot)
+        section.timeslots.append(timeslot)
+    
+    scrape_section_header(piece_array, section)
+
+def next_row_is_section_header(piece_array):
+    return piece_array[-1] == "Select"
+
+def scrape_section_header(piece_array, section):
+    piece_array.pop()
+    piece_array.pop()
+    piece_array.pop()
+    
+    section_info = piece_array.pop()
+    
+    m = re.search('^([\S]+)-([\S]+)\s+\((\S+)\)$', section_info)
+    if m:
+        section.index = m.group(1)
+        section.type = m.group(2)
+        section.id = m.group(3)
+
+def scrape_single_timeslot(piece_array, timeslot):
+    
+    timeslot.date_range = piece_array.pop()
+    timeslot.instructor = piece_array.pop()
+    timeslot.room = piece_array.pop()
+    timeslot.end = piece_array.pop()
+    timeslot.start = piece_array.pop()
+    timeslot.day = piece_array.pop()
+
+
+    
+while len(section_pieces) > 0:
+    section = SolusModels.Section()
+    scrape_single_section(section_pieces, section)
+    
+    course.sections.append(section)
+
+
+
+
+
