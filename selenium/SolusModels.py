@@ -10,7 +10,16 @@ class SolusCourse:
         self.description = ""
         
         self.sections = []
-        self.num_courses += 1
+    
+    def clean(self):
+        for section in self.sections:
+            section.clean()
+    
+    def describe(self):
+        print u"\n\nCourse:\n(%s %s) %s" % (self.subject, self.num, self.title)
+        print self.description
+        for section in self.sections:
+            print section.describe()
 
 
 class Section:
@@ -19,12 +28,15 @@ class Section:
         self.type = ""
         self.id = ""
         self.timeslots = []
-        
-    def __unicode__(self):
-        desc = u"(%s) %s-%s\n" % (self.id, self.type, self.index)
-        #for timeslot in self.timeslots:
-         #   desc = desc + timeslot + u"\n"
-        return desc
+    
+    def clean(self):
+        for timeslot in self.timeslots:
+            print timeslot.clean()
+    
+    def describe(self):
+        print u"\nSection:\n(%s) %s-%s" % (self.id, self.type, self.index)
+        for timeslot in self.timeslots:
+            print timeslot.describe()
 
 class Timeslot:
     def __init__(self):
@@ -35,5 +47,9 @@ class Timeslot:
         self.instructor = ""
         self.date_range = ""
     
-    def __unicode__(self):
-        return u"%s, %s-%s in %s, with %s. %s" % (self.day, self.start, self.end, self.room, self.instructor, self.date_range)
+    def clean(self):
+        self.instructor = self.instructor.replace(" \n ", " ")
+    
+    def describe(self):
+        print u"%s, %s-%s in %s, with %s. %s" % (self.day, self.start, self.end, self.room, self.instructor, self.date_range)
+    

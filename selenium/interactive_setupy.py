@@ -203,6 +203,7 @@ while len(section_pieces) > 0:
     course.sections.append(section)
 
 
-
+course.clean()
+course.describe()
 
 

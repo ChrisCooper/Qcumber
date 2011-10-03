@@ -15,7 +15,31 @@ class selenium_export(unittest.TestCase):
         self.selenium = selenium("localhost", 4444, "*chrome", "https://sso.queensu.ca/amserver/UI/Login")
         self.selenium.start()
         
+        
+        #Data to be kept
         self.courses = []
+        self.unique_attributes = {}
+        
+        #Test parameters
+        
+        #Which letters of courses to go through
+        #alphanums = string.ascii_uppercase + string.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        self.alphanums = "C"
+        
+        #Optional cap for number of subjects per letter to scrape
+        #Set to 0 to have no cap
+        self.max_subjects_per_letter = 1
+        
+        #Which index of subject dropdowns to start at in a given alphanum
+        self.starting_subject_index = 4
+        
+        #Optional cap for number of courses per subject to scrape
+        #Set to 0 to have no cap
+        self.max_courses_per_subject = 7
+        
+        #Which index of coursesto start at in a given subject
+        self.starting_course_index = 0
+        
     
     def test_selenium_export(self):
         sel = self.selenium
@@ -57,23 +81,33 @@ class selenium_export(unittest.TestCase):
         
         
         #Go through all the course catalogue pages
-        #alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        alphanums = "AB"
-        for alphanum in alphanums:
-            self.scrape_courses_for_alphanum(alphanum)
         
-        print "Scraped a total of %d courses" % SolusModels.Course.num_courses
+        for alphanum in self.alphanums:
+            self.scrape_subjects_for_alphanum(alphanum)
+        
+        print "Scraped a total of %d courses" % SolusModels.SolusCourse.num_courses
+        print "Unique Attributes were:"
+        
+        for key in self.unique_attributes:
+            print "%s: %s" % (key, self.unique_attributes[key])
+        
+        for course in self.courses:
+            course.describe()
         
         import pdb; pdb.set_trace()
-        
-    def scrape_courses_for_alphanum(self, alphanum):
+    
+    #
+    # Alphanum
+    #
+    
+    def scrape_subjects_for_alphanum(self, alphanum):
         sel = self.selenium
         sel.click("id=DERIVED_SSS_BCC_SSR_ALPHANUM_" + alphanum)
         sel.wait_for_page_to_load("30000")
         
         
         #Prepare to traverse all links
-        link_number = 0
+        link_number = self.starting_subject_index
         link_name_base = "name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$%d"
         link_name = link_name_base % (link_number,)
         
@@ -96,14 +130,20 @@ class selenium_export(unittest.TestCase):
             
             #Go to next link
             link_number += 1
+            if self.max_subjects_per_letter and link_number >= self.max_subjects_per_letter + self.starting_subject_index:
+                break
+            
             link_name = link_name_base % (link_number,)
-        
+            
+    #
+    # Subject
+    #    
     
     def scrape_single_dropdown(self):
         sel = self.selenium
         
         #Prepare to traverse all links
-        link_number = 0
+        link_number = self.starting_course_index
         link_name_base = "id=CRSE_TITLE$%d"
         link_name = link_name_base % (link_number,)
         
@@ -121,13 +161,23 @@ class selenium_export(unittest.TestCase):
             
             #Go to next course
             link_number += 1
+            
+            if self.max_courses_per_subject and link_number >= self.max_courses_per_subject + self.starting_course_index:
+                break
+            
             link_name = link_name_base % (link_number,)
+    
+    #
+    # Course
+    #
     
     def scrape_single_course(self):
         sel = self.selenium
         
         self.course = SolusModels.SolusCourse()
         self.courses.append(self.course)
+        
+        SolusModels.SolusCourse.num_courses += 1
         
         raw_title = sel.get_text("css=span.PALEVEL0SECONDARY").strip()
         
@@ -157,7 +207,13 @@ class selenium_export(unittest.TestCase):
         
         info_mappings = {}
         
+        for (title_text, title_pos) in titles:
+            if title_text not in self.unique_attributes:
+                self.unique_attributes[title_text] = "%s %s" % (self.course.subject, self.course.num)
+
+        
         for (value_text, value_pos) in values:
+            
             best_diff = 10000
             best_text = None
             for (title_text, title_pos) in titles:
