@@ -19,7 +19,7 @@ class SolusCourse:
         print u"\n\nCourse:\n(%s %s) %s" % (self.subject, self.num, self.title)
         print self.description
         for section in self.sections:
-            print section.describe()
+            section.describe()
 
 
 class Section:
@@ -36,7 +36,7 @@ class Section:
     def describe(self):
         print u"\nSection:\n(%s) %s-%s" % (self.id, self.type, self.index)
         for timeslot in self.timeslots:
-            print timeslot.describe()
+            timeslot.describe()
 
 class Timeslot:
     def __init__(self):
