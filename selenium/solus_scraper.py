@@ -184,6 +184,17 @@ class selenium_export(unittest.TestCase):
     def scrape_single_course(self):
         sel = self.selenium
         
+        self.scrape_title()
+        self.scrape_attributes()
+        self.scrape_description()
+        self.show_and_scrape_sections()
+        
+    #
+    # Course - Title
+    #
+    
+    def scrape_title(self):
+        sel = self.selenium
         raw_title = sel.get_text("css=span.PALEVEL0SECONDARY").strip()
         
         m = re.search('^([\S]+)\s+([\S]+)\s+-\s+(.*)$', raw_title)
@@ -198,6 +209,13 @@ class selenium_export(unittest.TestCase):
         if re.search('^(UNSP)|(.*UNS)$', self.course.num):
             raise SolusModels.UselessCourseException("%s %s" % (self.course.subject, self.course.num))
 
+            
+    #
+    # Course - Attributes
+    #
+    
+    def scrape_attributes(self):
+        sel = self.selenium
 
         titles = []
         title_locator_formats = ["xpath=(//label[@class='PSDROPDOWNLABEL'])[%d]", "xpath=(//label[@class='PSEDITBOXLABEL'])[%d]"]
@@ -237,25 +255,7 @@ class selenium_export(unittest.TestCase):
                     info_mappings[best_text] = value_text
             else:
                 print "No match for %s" % value_text
-
-        #for key in info_mappings:
-            #print "%s: %s" % (key, info_mappings[key])
-        
-        description_locator = "xpath=(//span[@class='PSLONGEDITBOX'])[1]"
-        if sel.is_element_present(description_locator):
-            self.course.description = sel.get_text(description_locator)
-            #print "Description: %s" % course.description
-        
-        
-        #Check for "view class sections"
-        if sel.is_element_present("id=DERIVED_SAA_CRS_SSR_PB_GO"):
-            
-            sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
-            sel.wait_for_page_to_load("30000")
-            
-            self.scrape_sections()
-        
-    
+                
     def add_entries_for_position(self, lis, locator_format_string):
         sel = self.selenium
         index = 1
@@ -265,7 +265,36 @@ class selenium_export(unittest.TestCase):
                     
             index += 1
             locator = locator_format_string % index
-     
+    
+    #
+    # Course - Description
+    #
+    
+    
+    def scrape_description(self):
+        sel = self.selenium
+        description_locator = "xpath=(//span[@class='PSLONGEDITBOX'])[1]"
+        if sel.is_element_present(description_locator):
+            self.course.description = sel.get_text(description_locator)
+            #print "Description: %s" % course.description
+    
+            
+    #
+    # Course - Sections
+    #
+    
+    
+    def show_and_scrape_sections(self):
+        sel = self.selenium
+        
+        #Check for "view class sections"
+        if sel.is_element_present("id=DERIVED_SAA_CRS_SSR_PB_GO"):
+            
+            sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
+            sel.wait_for_page_to_load("30000")
+            
+            self.scrape_sections()
+    
     def scrape_sections(self):
         sel = self.selenium
         
@@ -278,23 +307,23 @@ class selenium_export(unittest.TestCase):
                 sel.wait_for_page_to_load("30000")
             
             self.scrape_term()
+        
+    #
+    # Term
+    #
     
     def scrape_term(self):
         sel = self.selenium
         
-        next_button_locator = "name=CLASS_TBL_VW5$fdown$img$0"
-        image_url = "/cs/saself/cache/PT_NEXTROW_1.gif"
+        if sel.is_element_present("id=CLASS_TBL_VW5$fviewall$0"):
+            sel.click("id=CLASS_TBL_VW5$fviewall$0")
+            sel.wait_for_page_to_load("30000")
+
+        self.scrape_section_page()
         
-        while True:
-            self.scrape_section_page()
-            
-            image_url = sel.get_attribute("%s@src" % next_button_locator)
-            
-            if image_url == "/cs/saself/cache/PT_NEXTROW_1.gif":
-                sel.click(next_button_locator)
-                sel.wait_for_page_to_load("30000")
-            else:
-                break    
+    #
+    # Section Page
+    #
     
     def scrape_section_page(self):
         
@@ -367,7 +396,6 @@ class selenium_export(unittest.TestCase):
         section.index = m.group(1)
         section.type = m.group(2)
         section.id = m.group(3)
-            
     
     def tearDown(self):
         self.selenium.stop()
