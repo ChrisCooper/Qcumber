@@ -89,10 +89,10 @@ class selenium_export(unittest.TestCase):
         print "Unique Attributes were:"
         
         for key in self.unique_attributes:
-            print "%s: %s" % (key, self.unique_attributes[key])
+            print "(%s): %s" % (self.unique_attributes[key], key)
         
-        for course in self.courses:
-            course.describe()
+        #for course in self.courses:
+            #course.describe()
         
         import pdb; pdb.set_trace()
     

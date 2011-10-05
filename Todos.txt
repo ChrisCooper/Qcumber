@@ -1,4 +1,3 @@
 combine (*)A and $1B courses
-list unique attributes
 scrape for ***not scheduled***
 include semester in info
