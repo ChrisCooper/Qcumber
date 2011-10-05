@@ -20,6 +20,9 @@ class selenium_export(unittest.TestCase):
         self.courses = []
         self.unique_attributes = {}
         
+        #Temporary data
+        self.current_term = ""
+        
         #Test parameters
         
         #Which letters of courses to go through
@@ -293,7 +296,11 @@ class selenium_export(unittest.TestCase):
             sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
             sel.wait_for_page_to_load("30000")
             
+            self.course.is_scheduled = True
+            
             self.scrape_sections()
+        else:
+            self.course.is_scheduled = False
     
     def scrape_sections(self):
         sel = self.selenium
@@ -306,6 +313,7 @@ class selenium_export(unittest.TestCase):
                 sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO$92$")
                 sel.wait_for_page_to_load("30000")
             
+            self.current_term = option
             self.scrape_term()
         
     #
@@ -333,12 +341,16 @@ class selenium_export(unittest.TestCase):
             section = SolusModels.Section()
             self.course.sections.append(section)
             
+            section.term = self.current_term
+            
             self.scrape_single_section(section_pieces, section)
             
             
         
     def section_pieces_from_page(self):
         sel = self.selenium
+        
+        
         
         section_pieces = []
         index = 1
@@ -395,7 +407,7 @@ class selenium_export(unittest.TestCase):
         
         section.index = m.group(1)
         section.type = m.group(2)
-        section.id = m.group(3)
+        section.id = m.group(3) 
     
     def tearDown(self):
         self.selenium.stop()
