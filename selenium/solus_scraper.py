@@ -152,8 +152,18 @@ class selenium_export(unittest.TestCase):
             sel.click(link_name)
             sel.wait_for_page_to_load("30000")
             
+            self.course = SolusModels.SolusCourse()
+            self.courses.append(self.course)
+        
+            SolusModels.SolusCourse.num_courses += 1
+            
             #Scrape info from course
-            self.scrape_single_course()
+            try:
+                self.scrape_single_course()
+            except SolusModels.UselessCourseException as e:
+                print "Ignored"
+                self.courses.pop()
+                SolusModels.SolusCourse.num_courses -= 1
             
             #Back out from course page
             sel.click("id=DERIVED_SAA_CRS_RETURN_PB")
@@ -174,11 +184,6 @@ class selenium_export(unittest.TestCase):
     def scrape_single_course(self):
         sel = self.selenium
         
-        self.course = SolusModels.SolusCourse()
-        self.courses.append(self.course)
-        
-        SolusModels.SolusCourse.num_courses += 1
-        
         raw_title = sel.get_text("css=span.PALEVEL0SECONDARY").strip()
         
         m = re.search('^([\S]+)\s+([\S]+)\s+-\s+(.*)$', raw_title)
@@ -189,6 +194,9 @@ class selenium_export(unittest.TestCase):
 
         print ""
         print "%s %s - %s" % (self.course.subject, self.course.num, self.course.title)
+        
+        if re.search('^(UNSP)|(.*UNS)$', self.course.num):
+            raise SolusModels.UselessCourseException("%s %s" % (self.course.subject, self.course.num))
 
 
         titles = []

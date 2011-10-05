@@ -53,3 +53,9 @@ class Timeslot:
     def describe(self):
         print u"%s, %s-%s in %s, with %s. %s" % (self.day, self.start, self.end, self.room, self.instructor, self.date_range)
     
+
+class UselessCourseException(Exception):
+    def __init__(self, course_code):
+        self.course_code = course_code
+    def __str__(self):
+        return repr(self.course_code)
