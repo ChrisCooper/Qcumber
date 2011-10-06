@@ -1,1 +1,1 @@
-combine (*)A and $1B courses
+remove newlines from prof name

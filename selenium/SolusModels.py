@@ -9,9 +9,30 @@ class SolusCourse:
         
         self.description = ""
         
+        self.is_scheduled = True
+        
+        self.sections = []
+
+        
+    def add_merged_info(self, first, second):
+        self.title = first.title
+        self.subject = first.subject
+        self.num = first.num[:-1]
+        
+        self.description = first.description
+        
+        self.is_scheduled = first.is_scheduled
+        
         self.sections = []
         
-        self.is_scheduled = True
+        for s1 in first.sections:
+            for s2 in second.sections:
+                if s1.index == s2.index:
+                    s1.id += ",%s" % s2.id
+                    s1.term += ",%s" % s2.term
+                    s1.timeslots += s2.timeslots
+                    self.sections.append(s1)
+                    break
     
     def get_key(self):
         return "%s %s" % (self.subject, self.num)

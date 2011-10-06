@@ -22,9 +22,6 @@ class selenium_export(unittest.TestCase):
         # Data to be kept
         #
         
-        #list of all courses in scrape order
-        self.courses = []
-        
         # "CISC 220" -> course object
         self.courses_dict = {}
         
@@ -45,8 +42,7 @@ class selenium_export(unittest.TestCase):
         #
         
         #Which letters of courses to go through
-        #alphanums = string.ascii_uppercase + string.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "D"
+        self.alphanums = string.ascii_uppercase + string.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
@@ -62,6 +58,26 @@ class selenium_export(unittest.TestCase):
         #Which index of coursesto start at in a given subject
         self.starting_course_index = 0
         
+        #MATH 110
+        #self.alphanums = "M"
+        #self.max_subjects_per_letter = 1
+        #self.starting_subject_index = 1
+        #self.max_courses_per_subject = 2
+        #self.starting_course_index = 10
+        
+        #CHEM 112
+        #self.alphanums = "C"
+        #self.max_subjects_per_letter = 1
+        #self.starting_subject_index = 4
+        #self.max_courses_per_subject = 2
+        #self.starting_course_index = 5
+        
+        #CISC 121
+        #self.alphanums = "C"
+        #self.max_subjects_per_letter = 1
+        #self.starting_subject_index = 6
+        #self.max_courses_per_subject = 2
+        #self.starting_course_index = 10
     
     def test_selenium_export(self):
         print "Opening login page..."
@@ -122,7 +138,7 @@ class selenium_export(unittest.TestCase):
         #for course in self.courses:
             #course.describe()
         
-        #import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
     
     #
     # Alphanum
@@ -181,7 +197,6 @@ class selenium_export(unittest.TestCase):
             sel.wait_for_page_to_load("30000")
             
             self.course = SolusModels.SolusCourse()
-            self.courses.append(self.course)
         
             SolusModels.SolusCourse.num_courses += 1
             
@@ -195,7 +210,6 @@ class selenium_export(unittest.TestCase):
                 
             except SolusModels.UselessCourseException as e:
                 print "Ignored"
-                self.courses.pop()
                 SolusModels.SolusCourse.num_courses -= 1
             
             #Back out from course page
@@ -229,8 +243,18 @@ class selenium_export(unittest.TestCase):
             return
             
         other_half = self.courses_dict[other_half_key]
-        print "Found other half: %s" % (other_half.get_key())
-            
+        print "Merging with other half: %s" % (other_half.get_key())
+        
+        #Remove the other course from the dict so we can re-add the full course
+        del self.courses_dict[other_half_key]
+        del self.courses_dict[self.course.get_key()]
+        
+        merged = SolusModels.SolusCourse()
+        
+        merged.add_merged_info(other_half, self.course)
+        
+        self.courses_dict[merged.get_key()] = merged
+        
     
     #
     # Course
