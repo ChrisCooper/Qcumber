@@ -16,32 +16,49 @@ class selenium_export(unittest.TestCase):
         self.selenium.start()
         
         
-        #Data to be kept
+        #################
+        # Data to be kept
+        #
+        
+        #list of all courses in scrape order
         self.courses = []
+        
+        # "CISC 220" -> course object
+        self.courses_dict = {}
+        
+        # A mapping of all unique attributes found, mapped to the first course in which they were found
         self.unique_attributes = {}
         
-        #Temporary data
+        
+        ################
+        # Temporary data
+        #
+        
+        self.course = None
         self.current_term = ""
         
-        #Test parameters
+        
+        ################
+        # Test parameters
+        #
         
         #Which letters of courses to go through
         #alphanums = string.ascii_uppercase + string.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "C"
+        self.alphanums = "M"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
         self.max_subjects_per_letter = 1
         
         #Which index of subject dropdowns to start at in a given alphanum
-        self.starting_subject_index = 4
+        self.starting_subject_index = 1
         
         #Optional cap for number of courses per subject to scrape
         #Set to 0 to have no cap
-        self.max_courses_per_subject = 7
+        self.max_courses_per_subject = 2
         
         #Which index of coursesto start at in a given subject
-        self.starting_course_index = 0
+        self.starting_course_index = 10
         
     
     def test_selenium_export(self):
@@ -88,8 +105,8 @@ class selenium_export(unittest.TestCase):
         for alphanum in self.alphanums:
             self.scrape_subjects_for_alphanum(alphanum)
         
-        print "Scraped a total of %d courses" % SolusModels.SolusCourse.num_courses
-        print "Unique Attributes were:"
+        print "\nScraped a total of %d courses" % SolusModels.SolusCourse.num_courses
+        print "\nUnique Attributes were:"
         
         for key in self.unique_attributes:
             print "(%s): %s" % (self.unique_attributes[key], key)
@@ -163,6 +180,11 @@ class selenium_export(unittest.TestCase):
             #Scrape info from course
             try:
                 self.scrape_single_course()
+                
+                self.courses_dict[self.course.get_key()] = self.course
+                
+                self.merge_course_if_fullyear()
+                
             except SolusModels.UselessCourseException as e:
                 print "Ignored"
                 self.courses.pop()
@@ -179,6 +201,28 @@ class selenium_export(unittest.TestCase):
                 break
             
             link_name = link_name_base % (link_number,)
+    
+    def merge_course_if_fullyear(self):
+        
+        if self.course.num[-1] == "A":
+            other_half_letter = "B"
+        elif self.course.num[-1] == "B":
+            other_half_letter = "A"
+        else:
+            #Not a full year course
+            return
+        
+        
+        other_half_key = self.course.get_key()[:-1] + other_half_letter
+        
+        if other_half_key not in self.courses_dict:
+            #Haven't scraped the other course yet
+            print "Haven't found other half yet."
+            return
+            
+        other_half = self.courses_dict[other_half_key]
+        print "Found other half: %s" % (other_half.get_key())
+            
     
     #
     # Course

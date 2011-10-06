@@ -13,6 +13,9 @@ class SolusCourse:
         
         self.is_scheduled = True
     
+    def get_key(self):
+        return "%s %s" % (self.subject, self.num)
+    
     def clean(self):
         for section in self.sections:
             section.clean()
@@ -20,9 +23,9 @@ class SolusCourse:
     def describe(self):
         print u"\n\nCourse:\n(%s %s) %s" % (self.subject, self.num, self.title)
         if self.is_scheduled:
-            print "This course is scheduled"
+            print "This course is scheduled."
         else:
-            print "This course is not scheduled"
+            print "This course is not scheduled."
         print self.description
         for section in self.sections:
             section.describe()
