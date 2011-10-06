@@ -11,6 +11,8 @@ def wait_then_click(sel, identifier):
 class selenium_export(unittest.TestCase):
     
     def setUp(self):
+        print "Setting up Selenium..."
+        
         self.verificationErrors = []
         self.selenium = selenium("localhost", 4444, "*chrome", "https://sso.queensu.ca/amserver/UI/Login")
         self.selenium.start()
@@ -44,24 +46,26 @@ class selenium_export(unittest.TestCase):
         
         #Which letters of courses to go through
         #alphanums = string.ascii_uppercase + string.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "M"
+        self.alphanums = "D"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
-        self.max_subjects_per_letter = 1
+        self.max_subjects_per_letter = 0
         
         #Which index of subject dropdowns to start at in a given alphanum
-        self.starting_subject_index = 1
+        self.starting_subject_index = 0
         
         #Optional cap for number of courses per subject to scrape
         #Set to 0 to have no cap
-        self.max_courses_per_subject = 2
+        self.max_courses_per_subject = 0
         
         #Which index of coursesto start at in a given subject
-        self.starting_course_index = 10
+        self.starting_course_index = 0
         
     
     def test_selenium_export(self):
+        print "Opening login page..."
+        
         sel = self.selenium
         sel.open("/amserver/UI/Login")
         
@@ -78,10 +82,12 @@ class selenium_export(unittest.TestCase):
         sel.type("id=IDToken2", login_info[1])
         
         #Log in
+        print "Logging in..."
         sel.click("name=Login.Submit")
         sel.wait_for_page_to_load("30000")
         
         #Get URL for SOLUS and open it
+        print "Opening SOLUS..."
         solus_url = sel.get_attribute("link=SOLUS Student Centre@href")
         sel.open(solus_url)
         
@@ -89,10 +95,12 @@ class selenium_export(unittest.TestCase):
         sel.select_frame("name=TargetContent")
         
         #"Search For Classes"
+        print "Navigating to \"Search For Classes\"..."
         sel.click("id=DERIVED_SSS_SCL_SSS_GO_4$229$")
         sel.wait_for_page_to_load("30000")
         
         #"browse course catalog"
+        print "Navigating to \"browse course catalog\"..."
         sel.click("link=browse course catalog")
         sel.wait_for_page_to_load("30000")
         
@@ -114,7 +122,7 @@ class selenium_export(unittest.TestCase):
         #for course in self.courses:
             #course.describe()
         
-        import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
     
     #
     # Alphanum
