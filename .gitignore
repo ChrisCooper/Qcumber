@@ -1,2 +1,3 @@
 ignored_files/
 *.pyc
+* .json

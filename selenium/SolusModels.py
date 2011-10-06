@@ -25,6 +25,7 @@ class SolusCourse:
         
         self.sections = []
         
+        #Merge the individual sections
         for s1 in first.sections:
             for s2 in second.sections:
                 if s1.index == s2.index:
@@ -50,6 +51,15 @@ class SolusCourse:
         print self.description
         for section in self.sections:
             section.describe()
+    
+    def jsonable(self):
+        d = {}
+        d["t"] = self.title
+        d["s"] = self.subject
+        d["n"] = self.num
+        d["d"] = self.description
+        d["sec"] = [section.jsonable() for section in self.sections]
+        return d
 
 
 class Section:
@@ -62,12 +72,21 @@ class Section:
     
     def clean(self):
         for timeslot in self.timeslots:
-            print timeslot.clean()
+            timeslot.clean()
     
     def describe(self):
         print u"\nSection:\n(%s) %s-%s, %s" % (self.id, self.type, self.index, self.term)
         for timeslot in self.timeslots:
             timeslot.describe()
+    
+    def jsonable(self):
+        d = {}
+        d["in"] = self.index
+        d["t"] = self.type
+        d["id"] = self.id
+        d["t"] = self.term
+        d["ts"] = [timeslot.jsonable() for timeslot in self.timeslots]
+        return d
 
 class Timeslot:
     def __init__(self):
@@ -83,6 +102,16 @@ class Timeslot:
     
     def describe(self):
         print u"%s, %s-%s in %s, with %s. %s" % (self.day, self.start, self.end, self.room, self.instructor, self.date_range)
+    
+    def jsonable(self):
+        d = {}
+        d["d"] = self.day
+        d["s"] = self.start
+        d["e"] = self.end
+        d["r"] = self.room
+        d["i"] = self.instructor
+        d["dr"] = self.date_range
+        return d
     
 
 class UselessCourseException(Exception):

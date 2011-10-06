@@ -1,5 +1,5 @@
 from selenium import selenium
-import unittest, time, re
+import unittest, time, re, json
 import SolusModels
 
 def wait_then_click(sel, identifier):
@@ -42,7 +42,8 @@ class selenium_export(unittest.TestCase):
         #
         
         #Which letters of courses to go through
-        self.alphanums = string.ascii_uppercase + string.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        self.alphanums = "ABC"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
@@ -138,7 +139,10 @@ class selenium_export(unittest.TestCase):
         #for course in self.courses:
             #course.describe()
         
-        import pdb; pdb.set_trace()
+        with open("courses.json", "w") as f:
+            f.write(json.dumps([self.courses_dict[k].jsonable() for k in self.courses_dict.keys()], indent=2))
+        
+        #import pdb; pdb.set_trace()
     
     #
     # Alphanum
@@ -203,6 +207,8 @@ class selenium_export(unittest.TestCase):
             #Scrape info from course
             try:
                 self.scrape_single_course()
+                
+                self.course.clean()
                 
                 self.courses_dict[self.course.get_key()] = self.course
                 
