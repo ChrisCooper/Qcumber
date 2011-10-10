@@ -29,6 +29,7 @@
 		BF2696E714439E04002BA0F1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BF2696E614439E04002BA0F1 /* main.c */; };
 		BF2696E914439E04002BA0F1 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2696E814439E04002BA0F1 /* GetMetadataForFile.m */; };
 		BF2696EC14439E04002BA0F1 /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2696EB14439E04002BA0F1 /* MySpotlightImporter.m */; };
+		BFAE6DA91443A0DC0083BFB8 /* Qcumber icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAE6DA81443A0DC0083BFB8 /* Qcumber icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		BF2696EB14439E04002BA0F1 /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
 		BF2696ED14439E04002BA0F1 /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
 		BF2696EE14439E04002BA0F1 /* QcumberImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QcumberImporter-Prefix.pch"; sourceTree = "<group>"; };
+		BFAE6DA614439EB40083BFB8 /* Qcumber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Qcumber.entitlements; sourceTree = "<group>"; };
+		BFAE6DA81443A0DC0083BFB8 /* Qcumber icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Qcumber icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,7 @@
 		BF26968E14439E03002BA0F1 = {
 			isa = PBXGroup;
 			children = (
+				BFAE6DA81443A0DC0083BFB8 /* Qcumber icon.png */,
 				BF2696A314439E03002BA0F1 /* Qcumber */,
 				BF2696C614439E04002BA0F1 /* QcumberTests */,
 				BF2696E014439E04002BA0F1 /* QcumberImporter */,
@@ -165,6 +169,7 @@
 		BF2696A314439E03002BA0F1 /* Qcumber */ = {
 			isa = PBXGroup;
 			children = (
+				BFAE6DA614439EB40083BFB8 /* Qcumber.entitlements */,
 				BF2696AF14439E03002BA0F1 /* QTimetable.h */,
 				BF2696B014439E03002BA0F1 /* QTimetable.m */,
 				BF2696B214439E04002BA0F1 /* QTimetable.xib */,
@@ -323,6 +328,7 @@
 				BF2696B414439E04002BA0F1 /* QTimetable.xib in Resources */,
 				BF2696B714439E04002BA0F1 /* MainMenu.xib in Resources */,
 				BF2696D714439E04002BA0F1 /* QcumberImporter.mdimporter in Resources */,
+				BFAE6DA91443A0DC0083BFB8 /* Qcumber icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +541,8 @@
 		BF2696F514439E04002BA0F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Qcumber/Qcumber.entitlements;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qcumber/Qcumber-Prefix.pch";
 				INFOPLIST_FILE = "Qcumber/Qcumber-Info.plist";
@@ -546,6 +554,8 @@
 		BF2696F614439E04002BA0F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Qcumber/Qcumber.entitlements;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qcumber/Qcumber-Prefix.pch";
 				INFOPLIST_FILE = "Qcumber/Qcumber-Info.plist";
@@ -601,6 +611,7 @@
 				BF2696F314439E04002BA0F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF2696F414439E04002BA0F1 /* Build configuration list for PBXNativeTarget "Qcumber" */ = {
 			isa = XCConfigurationList;
@@ -609,6 +620,7 @@
 				BF2696F614439E04002BA0F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF2696F714439E04002BA0F1 /* Build configuration list for PBXNativeTarget "QcumberTests" */ = {
 			isa = XCConfigurationList;
@@ -617,6 +629,7 @@
 				BF2696F914439E04002BA0F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
