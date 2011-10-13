@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Qcumber" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="844" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="844" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Course">
+        <attribute name="desc" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="num" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" indexed="YES"/>
+        <relationship name="sections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Section"/>
+    </entity>
+    <entity name="Section">
+        <attribute name="id" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="index" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="term" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" indexed="YES"/>
+        <relationship name="timeslots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Timeslot"/>
+    </entity>
+    <entity name="Timeslot">
+        <attribute name="date_range" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="end" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="instructor" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="room" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="start" optional="YES" attributeType="String" indexed="YES"/>
+    </entity>
+    <elements>
+        <element name="Course" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Section" positionX="-54" positionY="36" width="128" height="120"/>
+        <element name="Timeslot" positionX="-36" positionY="45" width="128" height="135"/>
+    </elements>
 </model>
