@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BF26969814439E03002BA0F1"
+               BlueprintIdentifier = "BF7B1F1B14467E370088F5DB"
                BuildableName = "Qcumber.app"
                BlueprintName = "Qcumber"
                ReferencedContainer = "container:Qcumber.xcodeproj">
@@ -31,7 +31,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BF2696BF14439E04002BA0F1"
+               BlueprintIdentifier = "BF7B1F3F14467E380088F5DB"
                BuildableName = "QcumberTests.octest"
                BlueprintName = "QcumberTests"
                ReferencedContainer = "container:Qcumber.xcodeproj">
@@ -49,7 +49,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BF26969814439E03002BA0F1"
+            BlueprintIdentifier = "BF7B1F1B14467E370088F5DB"
             BuildableName = "Qcumber.app"
             BlueprintName = "Qcumber"
             ReferencedContainer = "container:Qcumber.xcodeproj">
@@ -66,7 +66,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BF26969814439E03002BA0F1"
+            BlueprintIdentifier = "BF7B1F1B14467E370088F5DB"
             BuildableName = "Qcumber.app"
             BlueprintName = "Qcumber"
             ReferencedContainer = "container:Qcumber.xcodeproj">

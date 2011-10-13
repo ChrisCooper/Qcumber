@@ -2,7 +2,7 @@
 //  QcumberTests.m
 //  QcumberTests
 //
-//  Created by Chris Cooper on 11-10-10.
+//  Created by Chris Cooper on 11-10-12.
 //  Copyright 2011 Chris Cooper. All rights reserved.
 //
 

@@ -9,78 +9,26 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>binary</string>
+				<string>qtimetable</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>Qcumber icon</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>application/octet-stream</string>
-			</array>
+			<string></string>
 			<key>CFBundleTypeName</key>
-			<string>Binary</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>QTimetable</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>sqlite</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>Qcumber icon</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>application/octet-stream</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>SQLite</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>QTimetable</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>SQLite</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>xml</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>Qcumber icon</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>text/xml</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>XML</string>
+			<string>DocumentType</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>????</string>
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
 			<key>NSDocumentClass</key>
 			<string>QTimetable</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>Qcumber icon.png</string>
+	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>com.Chris-Cooper.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -93,8 +41,6 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleURLTypes</key>
-	<array/>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationCategoryType</key>
@@ -107,11 +53,5 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>NSServices</key>
-	<array/>
-	<key>UTExportedTypeDeclarations</key>
-	<array/>
-	<key>UTImportedTypeDeclarations</key>
-	<array/>
 </dict>
 </plist>

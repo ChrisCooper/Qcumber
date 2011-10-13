@@ -7,229 +7,154 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF26969E14439E03002BA0F1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF26969D14439E03002BA0F1 /* Cocoa.framework */; };
-		BF2696A814439E03002BA0F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2696A614439E03002BA0F1 /* InfoPlist.strings */; };
-		BF2696AA14439E03002BA0F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2696A914439E03002BA0F1 /* main.m */; };
-		BF2696AE14439E03002BA0F1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BF2696AC14439E03002BA0F1 /* Credits.rtf */; };
-		BF2696B114439E03002BA0F1 /* QTimetable.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2696B014439E03002BA0F1 /* QTimetable.m */; };
-		BF2696B414439E04002BA0F1 /* QTimetable.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2696B214439E04002BA0F1 /* QTimetable.xib */; };
-		BF2696B714439E04002BA0F1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2696B514439E04002BA0F1 /* MainMenu.xib */; };
-		BF2696BA14439E04002BA0F1 /* QTimetable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF2696B814439E04002BA0F1 /* QTimetable.xcdatamodeld */; };
-		BF2696C214439E04002BA0F1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2696C114439E04002BA0F1 /* SenTestingKit.framework */; };
-		BF2696C314439E04002BA0F1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF26969D14439E03002BA0F1 /* Cocoa.framework */; };
-		BF2696CB14439E04002BA0F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2696C914439E04002BA0F1 /* InfoPlist.strings */; };
-		BF2696CD14439E04002BA0F1 /* QcumberTests.h in Resources */ = {isa = PBXBuildFile; fileRef = BF2696CC14439E04002BA0F1 /* QcumberTests.h */; };
-		BF2696CF14439E04002BA0F1 /* QcumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2696CE14439E04002BA0F1 /* QcumberTests.m */; };
-		BF2696D714439E04002BA0F1 /* QcumberImporter.mdimporter in Resources */ = {isa = PBXBuildFile; fileRef = BF2696D414439E04002BA0F1 /* QcumberImporter.mdimporter */; };
-		BF2696D914439E04002BA0F1 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2696D814439E04002BA0F1 /* CoreServices.framework */; };
-		BF2696DB14439E04002BA0F1 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2696DA14439E04002BA0F1 /* CoreFoundation.framework */; };
-		BF2696DD14439E04002BA0F1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2696DC14439E04002BA0F1 /* CoreData.framework */; };
-		BF2696DF14439E04002BA0F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2696DE14439E04002BA0F1 /* Foundation.framework */; };
-		BF2696E514439E04002BA0F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2696E314439E04002BA0F1 /* InfoPlist.strings */; };
-		BF2696E714439E04002BA0F1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BF2696E614439E04002BA0F1 /* main.c */; };
-		BF2696E914439E04002BA0F1 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2696E814439E04002BA0F1 /* GetMetadataForFile.m */; };
-		BF2696EC14439E04002BA0F1 /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2696EB14439E04002BA0F1 /* MySpotlightImporter.m */; };
-		BFAE6DA91443A0DC0083BFB8 /* Qcumber icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAE6DA81443A0DC0083BFB8 /* Qcumber icon.png */; };
+		BF7B1F2114467E370088F5DB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B1F2014467E370088F5DB /* Cocoa.framework */; };
+		BF7B1F2B14467E380088F5DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF7B1F2914467E380088F5DB /* InfoPlist.strings */; };
+		BF7B1F2D14467E380088F5DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B1F2C14467E380088F5DB /* main.m */; };
+		BF7B1F3114467E380088F5DB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BF7B1F2F14467E380088F5DB /* Credits.rtf */; };
+		BF7B1F3414467E380088F5DB /* QTimetable.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B1F3314467E380088F5DB /* QTimetable.m */; };
+		BF7B1F3714467E380088F5DB /* QTimetable.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B1F3514467E380088F5DB /* QTimetable.xib */; };
+		BF7B1F3A14467E380088F5DB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7B1F3814467E380088F5DB /* MainMenu.xib */; };
+		BF7B1F4214467E380088F5DB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B1F4114467E380088F5DB /* SenTestingKit.framework */; };
+		BF7B1F4314467E380088F5DB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B1F2014467E370088F5DB /* Cocoa.framework */; };
+		BF7B1F4B14467E380088F5DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF7B1F4914467E380088F5DB /* InfoPlist.strings */; };
+		BF7B1F4D14467E380088F5DB /* QcumberTests.h in Resources */ = {isa = PBXBuildFile; fileRef = BF7B1F4C14467E380088F5DB /* QcumberTests.h */; };
+		BF7B1F4F14467E380088F5DB /* QcumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B1F4E14467E380088F5DB /* QcumberTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BF2696C414439E04002BA0F1 /* PBXContainerItemProxy */ = {
+		BF7B1F4414467E380088F5DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BF26969014439E03002BA0F1 /* Project object */;
+			containerPortal = BF7B1F1314467E370088F5DB /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BF26969814439E03002BA0F1;
+			remoteGlobalIDString = BF7B1F1B14467E370088F5DB;
 			remoteInfo = Qcumber;
-		};
-		BF2696D514439E04002BA0F1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF26969014439E03002BA0F1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BF2696D314439E04002BA0F1;
-			remoteInfo = QcumberImporter;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF26969914439E03002BA0F1 /* Qcumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qcumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF26969D14439E03002BA0F1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		BF2696A014439E03002BA0F1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		BF2696A114439E03002BA0F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BF2696A214439E03002BA0F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		BF2696A514439E03002BA0F1 /* Qcumber-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Qcumber-Info.plist"; sourceTree = "<group>"; };
-		BF2696A714439E03002BA0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BF2696A914439E03002BA0F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BF2696AB14439E03002BA0F1 /* Qcumber-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Qcumber-Prefix.pch"; sourceTree = "<group>"; };
-		BF2696AD14439E03002BA0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		BF2696AF14439E03002BA0F1 /* QTimetable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTimetable.h; sourceTree = "<group>"; };
-		BF2696B014439E03002BA0F1 /* QTimetable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTimetable.m; sourceTree = "<group>"; };
-		BF2696B314439E04002BA0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QTimetable.xib; sourceTree = "<group>"; };
-		BF2696B614439E04002BA0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		BF2696B914439E04002BA0F1 /* QTimetable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QTimetable.xcdatamodel; sourceTree = "<group>"; };
-		BF2696C014439E04002BA0F1 /* QcumberTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QcumberTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF2696C114439E04002BA0F1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		BF2696C814439E04002BA0F1 /* QcumberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QcumberTests-Info.plist"; sourceTree = "<group>"; };
-		BF2696CA14439E04002BA0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BF2696CC14439E04002BA0F1 /* QcumberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QcumberTests.h; sourceTree = "<group>"; };
-		BF2696CE14439E04002BA0F1 /* QcumberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QcumberTests.m; sourceTree = "<group>"; };
-		BF2696D414439E04002BA0F1 /* QcumberImporter.mdimporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QcumberImporter.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF2696D814439E04002BA0F1 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		BF2696DA14439E04002BA0F1 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		BF2696DC14439E04002BA0F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BF2696DE14439E04002BA0F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		BF2696E214439E04002BA0F1 /* QcumberImporter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QcumberImporter-Info.plist"; sourceTree = "<group>"; };
-		BF2696E414439E04002BA0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BF2696E614439E04002BA0F1 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		BF2696E814439E04002BA0F1 /* GetMetadataForFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
-		BF2696EA14439E04002BA0F1 /* MySpotlightImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySpotlightImporter.h; sourceTree = "<group>"; };
-		BF2696EB14439E04002BA0F1 /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
-		BF2696ED14439E04002BA0F1 /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
-		BF2696EE14439E04002BA0F1 /* QcumberImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QcumberImporter-Prefix.pch"; sourceTree = "<group>"; };
-		BFAE6DA614439EB40083BFB8 /* Qcumber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Qcumber.entitlements; sourceTree = "<group>"; };
-		BFAE6DA81443A0DC0083BFB8 /* Qcumber icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Qcumber icon.png"; sourceTree = "<group>"; };
+		BF7B1F1C14467E370088F5DB /* Qcumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qcumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF7B1F2014467E370088F5DB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BF7B1F2314467E370088F5DB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BF7B1F2414467E370088F5DB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BF7B1F2514467E370088F5DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BF7B1F2814467E380088F5DB /* Qcumber-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Qcumber-Info.plist"; sourceTree = "<group>"; };
+		BF7B1F2A14467E380088F5DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF7B1F2C14467E380088F5DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF7B1F2E14467E380088F5DB /* Qcumber-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Qcumber-Prefix.pch"; sourceTree = "<group>"; };
+		BF7B1F3014467E380088F5DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		BF7B1F3214467E380088F5DB /* QTimetable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTimetable.h; sourceTree = "<group>"; };
+		BF7B1F3314467E380088F5DB /* QTimetable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTimetable.m; sourceTree = "<group>"; };
+		BF7B1F3614467E380088F5DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QTimetable.xib; sourceTree = "<group>"; };
+		BF7B1F3914467E380088F5DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF7B1F4014467E380088F5DB /* QcumberTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QcumberTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF7B1F4114467E380088F5DB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		BF7B1F4814467E380088F5DB /* QcumberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QcumberTests-Info.plist"; sourceTree = "<group>"; };
+		BF7B1F4A14467E380088F5DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF7B1F4C14467E380088F5DB /* QcumberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QcumberTests.h; sourceTree = "<group>"; };
+		BF7B1F4E14467E380088F5DB /* QcumberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QcumberTests.m; sourceTree = "<group>"; };
+		BF7B1F5814467E710088F5DB /* Qcumber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Qcumber.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BF26969614439E03002BA0F1 /* Frameworks */ = {
+		BF7B1F1914467E370088F5DB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF26969E14439E03002BA0F1 /* Cocoa.framework in Frameworks */,
+				BF7B1F2114467E370088F5DB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF2696BC14439E04002BA0F1 /* Frameworks */ = {
+		BF7B1F3C14467E380088F5DB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2696C214439E04002BA0F1 /* SenTestingKit.framework in Frameworks */,
-				BF2696C314439E04002BA0F1 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF2696D114439E04002BA0F1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF2696D914439E04002BA0F1 /* CoreServices.framework in Frameworks */,
-				BF2696DB14439E04002BA0F1 /* CoreFoundation.framework in Frameworks */,
-				BF2696DD14439E04002BA0F1 /* CoreData.framework in Frameworks */,
-				BF2696DF14439E04002BA0F1 /* Foundation.framework in Frameworks */,
+				BF7B1F4214467E380088F5DB /* SenTestingKit.framework in Frameworks */,
+				BF7B1F4314467E380088F5DB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF26968E14439E03002BA0F1 = {
+		BF7B1F1114467E370088F5DB = {
 			isa = PBXGroup;
 			children = (
-				BFAE6DA81443A0DC0083BFB8 /* Qcumber icon.png */,
-				BF2696A314439E03002BA0F1 /* Qcumber */,
-				BF2696C614439E04002BA0F1 /* QcumberTests */,
-				BF2696E014439E04002BA0F1 /* QcumberImporter */,
-				BF26969C14439E03002BA0F1 /* Frameworks */,
-				BF26969A14439E03002BA0F1 /* Products */,
+				BF7B1F2614467E370088F5DB /* Qcumber */,
+				BF7B1F4614467E380088F5DB /* QcumberTests */,
+				BF7B1F1F14467E370088F5DB /* Frameworks */,
+				BF7B1F1D14467E370088F5DB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		BF26969A14439E03002BA0F1 /* Products */ = {
+		BF7B1F1D14467E370088F5DB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BF26969914439E03002BA0F1 /* Qcumber.app */,
-				BF2696C014439E04002BA0F1 /* QcumberTests.octest */,
-				BF2696D414439E04002BA0F1 /* QcumberImporter.mdimporter */,
+				BF7B1F1C14467E370088F5DB /* Qcumber.app */,
+				BF7B1F4014467E380088F5DB /* QcumberTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BF26969C14439E03002BA0F1 /* Frameworks */ = {
+		BF7B1F1F14467E370088F5DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BF26969D14439E03002BA0F1 /* Cocoa.framework */,
-				BF2696C114439E04002BA0F1 /* SenTestingKit.framework */,
-				BF2696D814439E04002BA0F1 /* CoreServices.framework */,
-				BF2696DA14439E04002BA0F1 /* CoreFoundation.framework */,
-				BF2696DC14439E04002BA0F1 /* CoreData.framework */,
-				BF2696DE14439E04002BA0F1 /* Foundation.framework */,
-				BF26969F14439E03002BA0F1 /* Other Frameworks */,
+				BF7B1F2014467E370088F5DB /* Cocoa.framework */,
+				BF7B1F4114467E380088F5DB /* SenTestingKit.framework */,
+				BF7B1F2214467E370088F5DB /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BF26969F14439E03002BA0F1 /* Other Frameworks */ = {
+		BF7B1F2214467E370088F5DB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BF2696A014439E03002BA0F1 /* AppKit.framework */,
-				BF2696A114439E03002BA0F1 /* CoreData.framework */,
-				BF2696A214439E03002BA0F1 /* Foundation.framework */,
+				BF7B1F2314467E370088F5DB /* AppKit.framework */,
+				BF7B1F2414467E370088F5DB /* CoreData.framework */,
+				BF7B1F2514467E370088F5DB /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		BF2696A314439E03002BA0F1 /* Qcumber */ = {
+		BF7B1F2614467E370088F5DB /* Qcumber */ = {
 			isa = PBXGroup;
 			children = (
-				BFAE6DA614439EB40083BFB8 /* Qcumber.entitlements */,
-				BF2696AF14439E03002BA0F1 /* QTimetable.h */,
-				BF2696B014439E03002BA0F1 /* QTimetable.m */,
-				BF2696B214439E04002BA0F1 /* QTimetable.xib */,
-				BF2696B514439E04002BA0F1 /* MainMenu.xib */,
-				BF2696B814439E04002BA0F1 /* QTimetable.xcdatamodeld */,
-				BF2696A414439E03002BA0F1 /* Supporting Files */,
+				BF7B1F5814467E710088F5DB /* Qcumber.entitlements */,
+				BF7B1F3214467E380088F5DB /* QTimetable.h */,
+				BF7B1F3314467E380088F5DB /* QTimetable.m */,
+				BF7B1F3514467E380088F5DB /* QTimetable.xib */,
+				BF7B1F3814467E380088F5DB /* MainMenu.xib */,
+				BF7B1F2714467E380088F5DB /* Supporting Files */,
 			);
 			path = Qcumber;
 			sourceTree = "<group>";
 		};
-		BF2696A414439E03002BA0F1 /* Supporting Files */ = {
+		BF7B1F2714467E380088F5DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF2696A514439E03002BA0F1 /* Qcumber-Info.plist */,
-				BF2696A614439E03002BA0F1 /* InfoPlist.strings */,
-				BF2696A914439E03002BA0F1 /* main.m */,
-				BF2696AB14439E03002BA0F1 /* Qcumber-Prefix.pch */,
-				BF2696AC14439E03002BA0F1 /* Credits.rtf */,
+				BF7B1F2814467E380088F5DB /* Qcumber-Info.plist */,
+				BF7B1F2914467E380088F5DB /* InfoPlist.strings */,
+				BF7B1F2C14467E380088F5DB /* main.m */,
+				BF7B1F2E14467E380088F5DB /* Qcumber-Prefix.pch */,
+				BF7B1F2F14467E380088F5DB /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BF2696C614439E04002BA0F1 /* QcumberTests */ = {
+		BF7B1F4614467E380088F5DB /* QcumberTests */ = {
 			isa = PBXGroup;
 			children = (
-				BF2696CC14439E04002BA0F1 /* QcumberTests.h */,
-				BF2696CE14439E04002BA0F1 /* QcumberTests.m */,
-				BF2696C714439E04002BA0F1 /* Supporting Files */,
+				BF7B1F4C14467E380088F5DB /* QcumberTests.h */,
+				BF7B1F4E14467E380088F5DB /* QcumberTests.m */,
+				BF7B1F4714467E380088F5DB /* Supporting Files */,
 			);
 			path = QcumberTests;
 			sourceTree = "<group>";
 		};
-		BF2696C714439E04002BA0F1 /* Supporting Files */ = {
+		BF7B1F4714467E380088F5DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF2696C814439E04002BA0F1 /* QcumberTests-Info.plist */,
-				BF2696C914439E04002BA0F1 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BF2696E014439E04002BA0F1 /* QcumberImporter */ = {
-			isa = PBXGroup;
-			children = (
-				BF2696E814439E04002BA0F1 /* GetMetadataForFile.m */,
-				BF2696EA14439E04002BA0F1 /* MySpotlightImporter.h */,
-				BF2696EB14439E04002BA0F1 /* MySpotlightImporter.m */,
-				BF2696ED14439E04002BA0F1 /* Importer Read Me.txt */,
-				BF2696E114439E04002BA0F1 /* Supporting Files */,
-			);
-			path = QcumberImporter;
-			sourceTree = "<group>";
-		};
-		BF2696E114439E04002BA0F1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BF2696E214439E04002BA0F1 /* QcumberImporter-Info.plist */,
-				BF2696E314439E04002BA0F1 /* InfoPlist.strings */,
-				BF2696E614439E04002BA0F1 /* main.c */,
-				BF2696EE14439E04002BA0F1 /* QcumberImporter-Prefix.pch */,
+				BF7B1F4814467E380088F5DB /* QcumberTests-Info.plist */,
+				BF7B1F4914467E380088F5DB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -237,122 +162,93 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BF26969814439E03002BA0F1 /* Qcumber */ = {
+		BF7B1F1B14467E370088F5DB /* Qcumber */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF2696F414439E04002BA0F1 /* Build configuration list for PBXNativeTarget "Qcumber" */;
+			buildConfigurationList = BF7B1F5214467E380088F5DB /* Build configuration list for PBXNativeTarget "Qcumber" */;
 			buildPhases = (
-				BF26969514439E03002BA0F1 /* Sources */,
-				BF26969614439E03002BA0F1 /* Frameworks */,
-				BF26969714439E03002BA0F1 /* Resources */,
+				BF7B1F1814467E370088F5DB /* Sources */,
+				BF7B1F1914467E370088F5DB /* Frameworks */,
+				BF7B1F1A14467E370088F5DB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BF2696D614439E04002BA0F1 /* PBXTargetDependency */,
 			);
 			name = Qcumber;
 			productName = Qcumber;
-			productReference = BF26969914439E03002BA0F1 /* Qcumber.app */;
+			productReference = BF7B1F1C14467E370088F5DB /* Qcumber.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BF2696BF14439E04002BA0F1 /* QcumberTests */ = {
+		BF7B1F3F14467E380088F5DB /* QcumberTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF2696F714439E04002BA0F1 /* Build configuration list for PBXNativeTarget "QcumberTests" */;
+			buildConfigurationList = BF7B1F5514467E380088F5DB /* Build configuration list for PBXNativeTarget "QcumberTests" */;
 			buildPhases = (
-				BF2696BB14439E04002BA0F1 /* Sources */,
-				BF2696BC14439E04002BA0F1 /* Frameworks */,
-				BF2696BD14439E04002BA0F1 /* Resources */,
-				BF2696BE14439E04002BA0F1 /* ShellScript */,
+				BF7B1F3B14467E380088F5DB /* Sources */,
+				BF7B1F3C14467E380088F5DB /* Frameworks */,
+				BF7B1F3D14467E380088F5DB /* Resources */,
+				BF7B1F3E14467E380088F5DB /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BF2696C514439E04002BA0F1 /* PBXTargetDependency */,
+				BF7B1F4514467E380088F5DB /* PBXTargetDependency */,
 			);
 			name = QcumberTests;
 			productName = QcumberTests;
-			productReference = BF2696C014439E04002BA0F1 /* QcumberTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
-		BF2696D314439E04002BA0F1 /* QcumberImporter */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF2696F114439E04002BA0F1 /* Build configuration list for PBXNativeTarget "QcumberImporter" */;
-			buildPhases = (
-				BF2696D014439E04002BA0F1 /* Sources */,
-				BF2696D114439E04002BA0F1 /* Frameworks */,
-				BF2696D214439E04002BA0F1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = QcumberImporter;
-			productName = QcumberImporter;
-			productReference = BF2696D414439E04002BA0F1 /* QcumberImporter.mdimporter */;
+			productReference = BF7B1F4014467E380088F5DB /* QcumberTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BF26969014439E03002BA0F1 /* Project object */ = {
+		BF7B1F1314467E370088F5DB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "Chris Cooper";
 			};
-			buildConfigurationList = BF26969314439E03002BA0F1 /* Build configuration list for PBXProject "Qcumber" */;
+			buildConfigurationList = BF7B1F1614467E370088F5DB /* Build configuration list for PBXProject "Qcumber" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = BF26968E14439E03002BA0F1;
-			productRefGroup = BF26969A14439E03002BA0F1 /* Products */;
+			mainGroup = BF7B1F1114467E370088F5DB;
+			productRefGroup = BF7B1F1D14467E370088F5DB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF26969814439E03002BA0F1 /* Qcumber */,
-				BF2696BF14439E04002BA0F1 /* QcumberTests */,
-				BF2696D314439E04002BA0F1 /* QcumberImporter */,
+				BF7B1F1B14467E370088F5DB /* Qcumber */,
+				BF7B1F3F14467E380088F5DB /* QcumberTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BF26969714439E03002BA0F1 /* Resources */ = {
+		BF7B1F1A14467E370088F5DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2696A814439E03002BA0F1 /* InfoPlist.strings in Resources */,
-				BF2696AE14439E03002BA0F1 /* Credits.rtf in Resources */,
-				BF2696B414439E04002BA0F1 /* QTimetable.xib in Resources */,
-				BF2696B714439E04002BA0F1 /* MainMenu.xib in Resources */,
-				BF2696D714439E04002BA0F1 /* QcumberImporter.mdimporter in Resources */,
-				BFAE6DA91443A0DC0083BFB8 /* Qcumber icon.png in Resources */,
+				BF7B1F2B14467E380088F5DB /* InfoPlist.strings in Resources */,
+				BF7B1F3114467E380088F5DB /* Credits.rtf in Resources */,
+				BF7B1F3714467E380088F5DB /* QTimetable.xib in Resources */,
+				BF7B1F3A14467E380088F5DB /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF2696BD14439E04002BA0F1 /* Resources */ = {
+		BF7B1F3D14467E380088F5DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2696CB14439E04002BA0F1 /* InfoPlist.strings in Resources */,
-				BF2696CD14439E04002BA0F1 /* QcumberTests.h in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF2696D214439E04002BA0F1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF2696E514439E04002BA0F1 /* InfoPlist.strings in Resources */,
+				BF7B1F4B14467E380088F5DB /* InfoPlist.strings in Resources */,
+				BF7B1F4D14467E380088F5DB /* QcumberTests.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BF2696BE14439E04002BA0F1 /* ShellScript */ = {
+		BF7B1F3E14467E380088F5DB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -368,94 +264,70 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BF26969514439E03002BA0F1 /* Sources */ = {
+		BF7B1F1814467E370088F5DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2696AA14439E03002BA0F1 /* main.m in Sources */,
-				BF2696B114439E03002BA0F1 /* QTimetable.m in Sources */,
-				BF2696BA14439E04002BA0F1 /* QTimetable.xcdatamodeld in Sources */,
+				BF7B1F2D14467E380088F5DB /* main.m in Sources */,
+				BF7B1F3414467E380088F5DB /* QTimetable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF2696BB14439E04002BA0F1 /* Sources */ = {
+		BF7B1F3B14467E380088F5DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2696CF14439E04002BA0F1 /* QcumberTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF2696D014439E04002BA0F1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF2696E714439E04002BA0F1 /* main.c in Sources */,
-				BF2696E914439E04002BA0F1 /* GetMetadataForFile.m in Sources */,
-				BF2696EC14439E04002BA0F1 /* MySpotlightImporter.m in Sources */,
+				BF7B1F4F14467E380088F5DB /* QcumberTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BF2696C514439E04002BA0F1 /* PBXTargetDependency */ = {
+		BF7B1F4514467E380088F5DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BF26969814439E03002BA0F1 /* Qcumber */;
-			targetProxy = BF2696C414439E04002BA0F1 /* PBXContainerItemProxy */;
-		};
-		BF2696D614439E04002BA0F1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BF2696D314439E04002BA0F1 /* QcumberImporter */;
-			targetProxy = BF2696D514439E04002BA0F1 /* PBXContainerItemProxy */;
+			target = BF7B1F1B14467E370088F5DB /* Qcumber */;
+			targetProxy = BF7B1F4414467E380088F5DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BF2696A614439E03002BA0F1 /* InfoPlist.strings */ = {
+		BF7B1F2914467E380088F5DB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BF2696A714439E03002BA0F1 /* en */,
+				BF7B1F2A14467E380088F5DB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		BF2696AC14439E03002BA0F1 /* Credits.rtf */ = {
+		BF7B1F2F14467E380088F5DB /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BF2696AD14439E03002BA0F1 /* en */,
+				BF7B1F3014467E380088F5DB /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		BF2696B214439E04002BA0F1 /* QTimetable.xib */ = {
+		BF7B1F3514467E380088F5DB /* QTimetable.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BF2696B314439E04002BA0F1 /* en */,
+				BF7B1F3614467E380088F5DB /* en */,
 			);
 			name = QTimetable.xib;
 			sourceTree = "<group>";
 		};
-		BF2696B514439E04002BA0F1 /* MainMenu.xib */ = {
+		BF7B1F3814467E380088F5DB /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BF2696B614439E04002BA0F1 /* en */,
+				BF7B1F3914467E380088F5DB /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		BF2696C914439E04002BA0F1 /* InfoPlist.strings */ = {
+		BF7B1F4914467E380088F5DB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BF2696CA14439E04002BA0F1 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		BF2696E314439E04002BA0F1 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF2696E414439E04002BA0F1 /* en */,
+				BF7B1F4A14467E380088F5DB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -463,7 +335,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		BF2696EF14439E04002BA0F1 /* Debug */ = {
+		BF7B1F5014467E380088F5DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -489,7 +361,7 @@
 			};
 			name = Debug;
 		};
-		BF2696F014439E04002BA0F1 /* Release */ = {
+		BF7B1F5114467E380088F5DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -508,41 +380,11 @@
 			};
 			name = Release;
 		};
-		BF2696F214439E04002BA0F1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QcumberImporter/QcumberImporter-Prefix.pch";
-				INFOPLIST_FILE = "QcumberImporter/QcumberImporter-Info.plist";
-				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
-				LIBRARY_STYLE = BUNDLE;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = mdimporter;
-			};
-			name = Debug;
-		};
-		BF2696F314439E04002BA0F1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QcumberImporter/QcumberImporter-Prefix.pch";
-				INFOPLIST_FILE = "QcumberImporter/QcumberImporter-Info.plist";
-				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
-				LIBRARY_STYLE = BUNDLE;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = mdimporter;
-			};
-			name = Release;
-		};
-		BF2696F514439E04002BA0F1 /* Debug */ = {
+		BF7B1F5314467E380088F5DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Qcumber/Qcumber.entitlements;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qcumber/Qcumber-Prefix.pch";
 				INFOPLIST_FILE = "Qcumber/Qcumber-Info.plist";
@@ -551,11 +393,11 @@
 			};
 			name = Debug;
 		};
-		BF2696F614439E04002BA0F1 /* Release */ = {
+		BF7B1F5414467E380088F5DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Qcumber/Qcumber.entitlements;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qcumber/Qcumber-Prefix.pch";
 				INFOPLIST_FILE = "Qcumber/Qcumber-Info.plist";
@@ -564,7 +406,7 @@
 			};
 			name = Release;
 		};
-		BF2696F814439E04002BA0F1 /* Debug */ = {
+		BF7B1F5614467E380088F5DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Qcumber.app/Contents/MacOS/Qcumber";
@@ -578,7 +420,7 @@
 			};
 			name = Debug;
 		};
-		BF2696F914439E04002BA0F1 /* Release */ = {
+		BF7B1F5714467E380088F5DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Qcumber.app/Contents/MacOS/Qcumber";
@@ -595,56 +437,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BF26969314439E03002BA0F1 /* Build configuration list for PBXProject "Qcumber" */ = {
+		BF7B1F1614467E370088F5DB /* Build configuration list for PBXProject "Qcumber" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BF2696EF14439E04002BA0F1 /* Debug */,
-				BF2696F014439E04002BA0F1 /* Release */,
+				BF7B1F5014467E380088F5DB /* Debug */,
+				BF7B1F5114467E380088F5DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF2696F114439E04002BA0F1 /* Build configuration list for PBXNativeTarget "QcumberImporter" */ = {
+		BF7B1F5214467E380088F5DB /* Build configuration list for PBXNativeTarget "Qcumber" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BF2696F214439E04002BA0F1 /* Debug */,
-				BF2696F314439E04002BA0F1 /* Release */,
+				BF7B1F5314467E380088F5DB /* Debug */,
+				BF7B1F5414467E380088F5DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		BF2696F414439E04002BA0F1 /* Build configuration list for PBXNativeTarget "Qcumber" */ = {
+		BF7B1F5514467E380088F5DB /* Build configuration list for PBXNativeTarget "QcumberTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BF2696F514439E04002BA0F1 /* Debug */,
-				BF2696F614439E04002BA0F1 /* Release */,
+				BF7B1F5614467E380088F5DB /* Debug */,
+				BF7B1F5714467E380088F5DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF2696F714439E04002BA0F1 /* Build configuration list for PBXNativeTarget "QcumberTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF2696F814439E04002BA0F1 /* Debug */,
-				BF2696F914439E04002BA0F1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		BF2696B814439E04002BA0F1 /* QTimetable.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BF2696B914439E04002BA0F1 /* QTimetable.xcdatamodel */,
-			);
-			currentVersion = BF2696B914439E04002BA0F1 /* QTimetable.xcdatamodel */;
-			path = QTimetable.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = BF26969014439E03002BA0F1 /* Project object */;
+	rootObject = BF7B1F1314467E370088F5DB /* Project object */;
 }
