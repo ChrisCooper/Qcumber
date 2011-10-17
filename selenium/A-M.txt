@@ -1,0 +1,57 @@
+Section Types were:
+(MUSC 326B): STD
+(MINE 898): PRJ
+(MUSC 475): LEC
+(KNPE 446B): PRA
+(MTHE 493B): LDI
+(MUSC 425B): EXM
+(MUSC 191B): TUT
+(MUSC 478B): LAB
+(DEVS 898): RSC
+(BIOL 319): COR
+(MICR 920): LSM
+(MUSC 592B): IND
+(MICR 855): LLB
+(MTHE 494): SEM
+(MATH 503): REA
+(GPHY 307): FLD
+(MINE 999): THE
+
+Terms were:
+(MUSC 592B): 2012 Winter
+(MUSC 592A): 2011 Fall
+(MPA 898): 2012 Summer
+
+Unique Attributes were:
+(ANAT 100): Typically Offered
+(ANAT 100): Career
+(ANAT 100): Grading Basis
+(ANAT 409): Add Consent
+(ANAT 100): Course Components
+(ANAT 100): Units
+(ANAT 416): Drop Consent
+(ANAT 100): Enrollment Requirement
+
+Days were:
+(MUSC 278B): TuTh
+(MGBL 881): WeFr
+(ARTF 337): MoWeTh
+(MUSC 478B): Tu
+(MUSC 462A): MoWe
+(MUSC 478B): Th
+(MUSC 443): Fr
+(LAW 633): TuWeTh
+(MGBL 851): MoFr
+(FOUN 448): MoTuFrSaSu
+(ARTC 811): TuWe
+(FOUN 469): MoTh
+(MUSC 471): Mo
+(MUSC 475): We
+(DRAM 238): Su
+(ARTC 874): MoTuWeTh
+(GNDS 801): MoTu
+(DRAM 238): Sa
+(ECON 820): TuFr
+(CHEE 470): MoWeFr
+(LAW 633): WeTh
+(MUSC 592B): TBA
