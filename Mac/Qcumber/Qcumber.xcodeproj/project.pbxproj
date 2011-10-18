@@ -27,6 +27,7 @@
 		BF7B1F6B1446B18D0088F5DB /* Qcumber full.png in Resources */ = {isa = PBXBuildFile; fileRef = BF7B1F6A1446B18D0088F5DB /* Qcumber full.png */; };
 		BF7B1F6E1446B21A0088F5DB /* QcumberApplicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7B1F6D1446B21A0088F5DB /* QcumberApplicationManager.m */; };
 		BF7B1FA61446C1990088F5DB /* Qcumber.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF7B1FA41446C1990088F5DB /* Qcumber.xcdatamodeld */; };
+		BFA6544D14491C7500092612 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA6544C14491C7500092612 /* Course.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		BF7B1F6C1446B21A0088F5DB /* QcumberApplicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QcumberApplicationManager.h; sourceTree = "<group>"; };
 		BF7B1F6D1446B21A0088F5DB /* QcumberApplicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QcumberApplicationManager.m; sourceTree = "<group>"; };
 		BF7B1FA51446C1990088F5DB /* Qcumber.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Qcumber.xcdatamodel; sourceTree = "<group>"; };
+		BFA6544B14491C7500092612 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = Models/Course.h; sourceTree = "<group>"; };
+		BFA6544C14491C7500092612 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Models/Course.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +147,9 @@
 				BF7B1F3814467E380088F5DB /* MainMenu.xib */,
 				BF7B1F6C1446B21A0088F5DB /* QcumberApplicationManager.h */,
 				BF7B1F6D1446B21A0088F5DB /* QcumberApplicationManager.m */,
-				BF7B1FA41446C1990088F5DB /* Qcumber.xcdatamodeld */,
 				BF7B1F6F1446B2670088F5DB /* Course Update */,
 				BF7B1F701446B2780088F5DB /* Models */,
+				BF7B1FA41446C1990088F5DB /* Qcumber.xcdatamodeld */,
 				BF7B1F2714467E380088F5DB /* Supporting Files */,
 			);
 			path = Qcumber;
@@ -208,6 +211,8 @@
 			children = (
 				BF7B1F59144684E80088F5DB /* CourseManager.h */,
 				BF7B1F5A144684E80088F5DB /* CourseManager.m */,
+				BFA6544B14491C7500092612 /* Course.h */,
+				BFA6544C14491C7500092612 /* Course.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				BF7B1F631446A5DF0088F5DB /* CourseUpdateWindowController.m in Sources */,
 				BF7B1F6E1446B21A0088F5DB /* QcumberApplicationManager.m in Sources */,
 				BF7B1FA61446C1990088F5DB /* Qcumber.xcdatamodeld in Sources */,
+				BFA6544D14491C7500092612 /* Course.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
