@@ -50,21 +50,21 @@ class selenium_export(unittest.TestCase):
         
         #Which letters of courses to go through
         #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        self.alphanums = "F"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
-        self.max_subjects_per_letter = 0
+        self.max_subjects_per_letter = 1
         
         #Which index of subject dropdowns to start at in a given alphanum
-        self.starting_subject_index = 0
+        self.starting_subject_index = 2
         
         #Optional cap for number of courses per subject to scrape
         #Set to 0 to have no cap
         self.max_courses_per_subject = 1
         
         #Which index of coursesto start at in a given subject
-        self.starting_course_index = 0
+        self.starting_course_index = 19
         
         #MATH 110
         #self.alphanums = "M"
@@ -209,7 +209,6 @@ class selenium_export(unittest.TestCase):
         with open("courses.json", "w") as f:
             f.write(json.dumps(json_dict, indent=self.json_indent))
         
-    
     
     #
     # Alphanum
@@ -534,10 +533,7 @@ class selenium_export(unittest.TestCase):
     
     def scrape_single_section(self, piece_array, section):
         while not self.next_row_is_section_header(piece_array):
-            section_component = SolusModels.SectionComponent()
-            section.components.append(section_component)
-            
-            self.scrape_single_section_component(piece_array, section_component)
+            section.components += self.scrape_single_section_component(piece_array)
         
         self.scrape_section_header(piece_array, section)
     
@@ -552,23 +548,46 @@ class selenium_export(unittest.TestCase):
         
         return False
     
-    def scrape_single_section_component(self, piece_array, section_component):
+    def scrape_single_section_component(self, piece_array):
         if len(piece_array) < 6:
             import pdb; pdb.set_trace()
         
+        components = []
+        
         #Date range
         m = re.search('^([\S]+)\s*-\s*([\S]+)$', piece_array.pop())
-        section_component.start_date = m.groups(1)
-        section_component.end_date = m.groups(2)
+        start_date = m.group(1)
+        end_date = m.group(2)
         
-        section_component.instructor = piece_array.pop()
-        section_component.room = piece_array.pop()
+        instructor = piece_array.pop()
+        room = piece_array.pop()
         
-        #Add timeslot
-        day = piece_array.pop()
-        start = piece_array.pop()
+        #Timeslot
         end = piece_array.pop()
-        section_component.timeslot = SolusModels.timeslot_index_by_components(day, start, end)
+        start = piece_array.pop()
+        #Sometimes day is e.g. "MoTuWeSaSu"
+        all_days = piece_array.pop()
+        
+        
+        
+        while len(all_days) > 0:
+            day = SolusModels.index_of_day_abbr(all_days[-2:])
+            all_days = all_days[:-2]
+            
+            section_component = SolusModels.SectionComponent()
+            components.append(section_component)
+            
+            section_component.start_date = start_date
+            section_component.end_date = end_date
+        
+            section_component.instructor = instructor
+            section_component.room = room
+            
+            section_component.timeslot = SolusModels.timeslot_index_by_components(day, start, end)
+        
+        
+        
+        return components
     
     def scrape_section_header(self, piece_array, section):
         section_info = piece_array.pop()

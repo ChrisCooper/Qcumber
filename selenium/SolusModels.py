@@ -347,6 +347,11 @@ class SectionType:
         d["n"] = self.name
         return d
 
+days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+
+def index_of_day_abbr(abbr):
+    return days.index(abbr)
+
 class UselessCourseException(Exception):
     def __init__(self, course_code):
         self.course_code = course_code
