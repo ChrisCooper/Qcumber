@@ -10,13 +10,7 @@ def wait_then_click(sel, identifier):
 
 class selenium_export(unittest.TestCase):
     
-    def setUp(self):
-        print "Setting up Selenium..."
-        
-        self.verificationErrors = []
-        self.selenium = selenium("localhost", 4444, "*chrome", "https://sso.queensu.ca/amserver/UI/Login")
-        self.selenium.start()
-        
+    def setUp(self):        
         
         #################
         # Data to be kept
@@ -25,8 +19,12 @@ class selenium_export(unittest.TestCase):
         # "CISC 220" -> course object
         self.courses_dict = {}
         
+        
         # A mapping of all unique attributes found, mapped to the first course in which they were found
         self.unique_attributes = {}
+        
+        
+        self.verificationErrors = []
         
         
         ################
@@ -41,9 +39,17 @@ class selenium_export(unittest.TestCase):
         # Test parameters
         #
         
+        
+        #Mode - scrape site vs. read from file (for data crunching)
+        self.should_read_from_file = False
+        self.read_file_name = "courses 10-14.json"
+        
+        #Indenting in Json - None, or a number of spaces
+        self.json_indent = 2
+        
         #Which letters of courses to go through
         #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "ABC"
+        self.alphanums = "ABCDEFGHIJKLM"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
@@ -79,8 +85,42 @@ class selenium_export(unittest.TestCase):
         #self.starting_subject_index = 6
         #self.max_courses_per_subject = 2
         #self.starting_course_index = 10
+        
+        
+        
+        
+    
+    def read_from_file(self):
+        with open(self.read_file_name) as f:
+            all_str = f.read()
+            all_list = json.loads(all_str)
+            for course_dict in all_list:
+                course = SolusModels.SolusCourse(course_dict)
+                self.courses_dict[course.get_key()] = course
+        
+        print len(self.courses_dict)
+    
+    def optimize_data(self):
+        pass
+        
     
     def test_selenium_export(self):
+        
+        
+        #Check if we're just crunching data
+        if self.should_read_from_file:
+            self.read_from_file()
+            self.optimize_data()
+            return
+        
+        #If not... off we go scraping!
+        print "Setting up Selenium..."
+        
+        
+        self.selenium = selenium("localhost", 4444, "*chrome", "https://sso.queensu.ca/amserver/UI/Login")
+        self.selenium.start()
+        
+        
         print "Opening login page..."
         
         sel = self.selenium
@@ -113,7 +153,7 @@ class selenium_export(unittest.TestCase):
         
         #"Search For Classes"
         print "Navigating to \"Search For Classes\"..."
-        sel.click("id=DERIVED_SSS_SCL_SSS_GO_4$229$")
+        sel.click("id=DERIVED_SSS_SCL_SSS_GO_4$230$")
         sel.wait_for_page_to_load("30000")
         
         #"browse course catalog"
@@ -130,7 +170,15 @@ class selenium_export(unittest.TestCase):
         for alphanum in self.alphanums:
             self.scrape_subjects_for_alphanum(alphanum)
         
-        print "\nScraped a total of %d courses" % SolusModels.SolusCourse.num_courses
+        self.selenium.stop()
+        
+        print "\nScraped a total of:"
+        print "%d Subjects" % len(SolusModels.Subject.subjects)
+        print "%d Courses" % SolusModels.SolusCourse.num_courses
+        print "%d Section Types" % len(SolusModels.SectionType.section_types)
+        print "%d Terms" % len(SolusModels.Term.terms)
+        print "%d Timeslots" % len(SolusModels.Timeslot.timeslots)
+        
         print "\nUnique Attributes were:"
         
         for key in self.unique_attributes:
@@ -139,10 +187,28 @@ class selenium_export(unittest.TestCase):
         #for course in self.courses:
             #course.describe()
         
-        with open("courses.json", "w") as f:
-            f.write(json.dumps([self.courses_dict[k].jsonable() for k in self.courses_dict.keys()], indent=2))
+        self.optimize_data()
+        
+        self.write_json()
         
         #import pdb; pdb.set_trace()
+    
+    
+    def write_json(self):
+        
+        json_dict = {}
+        
+        json_dict["terms"] = [term.jsonable() for term in SolusModels.Term.terms]
+        json_dict["timeslots"] = [timeslot.jsonable() for timeslot in SolusModels.Timeslot.timeslots]
+        json_dict["section_types"] = [section_type.jsonable() for section_type in SolusModels.SectionType.section_types]
+        json_dict["subjects"] = [subject.jsonable() for subject in SolusModels.Subject.subjects]
+        json_dict["courses"] = [self.courses_dict[k].jsonable() for k in self.courses_dict.keys()]
+        
+        
+        with open("courses.json", "w") as f:
+            f.write(json.dumps(json_dict, indent=self.json_indent))
+        
+    
     
     #
     # Alphanum
@@ -284,12 +350,13 @@ class selenium_export(unittest.TestCase):
         
         m = re.search('^([\S]+)\s+([\S]+)\s+-\s+(.*)$', raw_title)
         
-        self.course.subject = m.group(1)
+        self.course.subject = SolusModels.subject_index_by_key(m.group(1))
+        self.course.subject_description = m.group(1)
         self.course.num = m.group(2)
         self.course.title = m.group(3)
 
         print ""
-        print "%s %s - %s" % (self.course.subject, self.course.num, self.course.title)
+        print "%s/%s %s - %s" % (self.course.subject_description, self.course.subject, self.course.num, self.course.title)
         
         if re.search('^(UNSP)|(.*UNS)$', self.course.num):
             raise SolusModels.UselessCourseException("%s %s" % (self.course.subject, self.course.num))
@@ -395,7 +462,8 @@ class selenium_export(unittest.TestCase):
                 sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO$92$")
                 sel.wait_for_page_to_load("30000")
             
-            self.current_term = option
+            
+            self.current_term = SolusModels.term_index_by_key(option)
             self.scrape_term()
         
     #
@@ -450,10 +518,10 @@ class selenium_export(unittest.TestCase):
     
     def scrape_single_section(self, piece_array, section):
         while not self.next_row_is_section_header(piece_array):
-            timeslot = SolusModels.Timeslot()
-            section.timeslots.append(timeslot)
+            section_component = SolusModels.SectionComponent()
+            section.components.append(section_component)
             
-            self.scrape_single_timeslot(piece_array, timeslot)
+            self.scrape_single_section_component(piece_array, section_component)
         
         self.scrape_section_header(piece_array, section)
     
@@ -468,16 +536,23 @@ class selenium_export(unittest.TestCase):
         
         return False
     
-    def scrape_single_timeslot(self, piece_array, timeslot):
+    def scrape_single_section_component(self, piece_array, section_component):
         if len(piece_array) < 6:
             import pdb; pdb.set_trace()
         
-        timeslot.date_range = piece_array.pop()
-        timeslot.instructor = piece_array.pop()
-        timeslot.room = piece_array.pop()
-        timeslot.end = piece_array.pop()
-        timeslot.start = piece_array.pop()
-        timeslot.day = piece_array.pop()
+        #Date range
+        m = re.search('^([\S]+)\s*-\s*([\S]+)$', piece_array.pop())
+        section_component.start_date = m.groups(1)
+        section_component.end_date = m.groups(2)
+        
+        section_component.instructor = piece_array.pop()
+        section_component.room = piece_array.pop()
+        
+        #Add timeslot
+        day = piece_array.pop()
+        start = piece_array.pop()
+        end = piece_array.pop()
+        section_component.timeslot = SolusModels.timeslot_index_by_components(day, start, end)
     
     def scrape_section_header(self, piece_array, section):
         section_info = piece_array.pop()
@@ -488,11 +563,10 @@ class selenium_export(unittest.TestCase):
             m = re.search('^([\S]+)-([\S]+)\s+\((\S+)\)$', section_info)
         
         section.index = m.group(1)
-        section.type = m.group(2)
+        section.type = SolusModels.section_type_index_by_key(m.group(2))
         section.id = m.group(3) 
     
     def tearDown(self):
-        self.selenium.stop()
         self.assertEqual([], self.verificationErrors)
 
 if __name__ == "__main__":
