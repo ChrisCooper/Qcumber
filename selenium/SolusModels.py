@@ -353,7 +353,7 @@ class SectionType:
         d["n"] = self.name
         return d
 
-days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su", "TB"]
 
 def index_of_day_abbr(abbr):
     return days.index(abbr)

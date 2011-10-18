@@ -50,21 +50,21 @@ class selenium_export(unittest.TestCase):
         
         #Which letters of courses to go through
         #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "F"
+        self.alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
-        self.max_subjects_per_letter = 1
+        self.max_subjects_per_letter = 0
         
         #Which index of subject dropdowns to start at in a given alphanum
-        self.starting_subject_index = 2
+        self.starting_subject_index = 0
         
         #Optional cap for number of courses per subject to scrape
         #Set to 0 to have no cap
-        self.max_courses_per_subject = 3
+        self.max_courses_per_subject = 0
         
         #Which index of coursesto start at in a given subject
-        self.starting_course_index = 19
+        self.starting_course_index = 0
         
         #MATH 110
         #self.alphanums = "M"
@@ -206,7 +206,7 @@ class selenium_export(unittest.TestCase):
         json_dict["courses"] = [self.courses_dict[k].jsonable() for k in self.courses_dict.keys()]
         
         
-        with open("courses.json", "w") as f:
+        with open("courses-indented.json", "w") as f:
             f.write(json.dumps(json_dict, indent=self.json_indent))
         
     
@@ -350,17 +350,12 @@ class selenium_export(unittest.TestCase):
     def add_course(self, course):
         key = course.get_key()
         
-        print "Trying to add %s." % key
-        
         #Check for duplicates
         if (key in self.courses_dict):
-            print "Found duplicate. Moving aside..."
             dup = self.courses_dict[key]
             dup.move_aside()
-            print "Adding back as %s." % dup.get_key()
             self.courses_dict[dup.get_key()] = dup
             
-        print "Adding %s." % key
         self.courses_dict[key] = course
     
     def scrape_single_course(self):
@@ -587,6 +582,8 @@ class selenium_export(unittest.TestCase):
         all_days = piece_array.pop()
         
         
+        if all_days == "TBA":
+            all_days = "TB"
         
         while len(all_days) > 0:
             day = SolusModels.index_of_day_abbr(all_days[-2:])
