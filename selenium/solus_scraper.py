@@ -33,6 +33,7 @@ class selenium_export(unittest.TestCase):
         
         self.course = None
         self.current_term = ""
+        self.subject_index = ""
         
         
         ################
@@ -49,7 +50,7 @@ class selenium_export(unittest.TestCase):
         
         #Which letters of courses to go through
         #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "ABCDEFGHIJKLM"
+        self.alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
@@ -60,7 +61,7 @@ class selenium_export(unittest.TestCase):
         
         #Optional cap for number of courses per subject to scrape
         #Set to 0 to have no cap
-        self.max_courses_per_subject = 0
+        self.max_courses_per_subject = 1
         
         #Which index of coursesto start at in a given subject
         self.starting_course_index = 0
@@ -222,10 +223,21 @@ class selenium_export(unittest.TestCase):
         
         #Prepare to traverse all links
         link_number = self.starting_subject_index
-        link_name_base = "name=DERIVED_SSS_BCC_SSR_EXPAND_COLLAPS$IMG$%d"
+        link_name_base = "name=DERIVED_SSS_BCC_GROUP_BOX_1$84$$%d"
         link_name = link_name_base % (link_number,)
         
         while sel.is_element_present(link_name):
+            #Store subject title
+            m = re.search("^(.*) - (.*)$", sel.get_text(link_name).strip())
+            
+            subject_key = m.group(1)
+            subject_title = m.group(2)
+            
+            print "\nSubject: %s: %s" % (subject_key, subject_title)
+            
+            self.subject_index = SolusModels.subject_index_by_key(subject_key)
+            SolusModels.Subject.subjects[self.subject_index].title = subject_title
+            
             #Open the dropdown
             sel.click(link_name)
             sel.wait_for_page_to_load("30000")
@@ -269,6 +281,8 @@ class selenium_export(unittest.TestCase):
             self.course = SolusModels.SolusCourse()
         
             SolusModels.SolusCourse.num_courses += 1
+            
+            self.course.subject = self.subject_index
             
             #Scrape info from course
             try:
@@ -350,7 +364,9 @@ class selenium_export(unittest.TestCase):
         
         m = re.search('^([\S]+)\s+([\S]+)\s+-\s+(.*)$', raw_title)
         
-        self.course.subject = SolusModels.subject_index_by_key(m.group(1))
+        #Subject is assigned earlier
+        #self.course.subject = SolusModels.subject_index_by_key(m.group(1))
+        
         self.course.subject_description = m.group(1)
         self.course.num = m.group(2)
         self.course.title = m.group(3)
