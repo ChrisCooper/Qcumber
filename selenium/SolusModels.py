@@ -5,6 +5,9 @@ class SolusCourse:
     num_courses = 0
     
     def __init__(self, course_dict=None):
+        
+        self.duplicate_suffix = ""
+        
         #Check for construction from dictionary
         if course_dict:
             self.title = course_dict["t"]
@@ -26,7 +29,10 @@ class SolusCourse:
         
         #for debugging
         self.subject_description = ""
-
+    
+    
+    def move_aside(self):
+        self.duplicate_suffix += " duplicate"
         
     def add_merged_info(self, first, second):
         self.title = first.title
@@ -50,7 +56,7 @@ class SolusCourse:
                     break
     
     def get_key(self):
-        return "%s %s" % (self.subject, self.num)
+        return "%s %s%s" % (self.subject, self.num, self.duplicate_suffix)
     
     def clean(self):
         for section in self.sections:

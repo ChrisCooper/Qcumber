@@ -61,7 +61,7 @@ class selenium_export(unittest.TestCase):
         
         #Optional cap for number of courses per subject to scrape
         #Set to 0 to have no cap
-        self.max_courses_per_subject = 1
+        self.max_courses_per_subject = 3
         
         #Which index of coursesto start at in a given subject
         self.starting_course_index = 19
@@ -289,7 +289,7 @@ class selenium_export(unittest.TestCase):
                 
                 self.course.clean()
                 
-                self.courses_dict[self.course.get_key()] = self.course
+                self.add_course(self.course)
                 
                 self.merge_course_if_fullyear()
                 
@@ -338,12 +338,30 @@ class selenium_export(unittest.TestCase):
         
         merged.add_merged_info(other_half, self.course)
         
-        self.courses_dict[merged.get_key()] = merged
+        self.add_course(merged)
+        
+        
         
     
     #
     # Course
     #
+    
+    def add_course(self, course):
+        key = course.get_key()
+        
+        print "Trying to add %s." % key
+        
+        #Check for duplicates
+        if (key in self.courses_dict):
+            print "Found duplicate. Moving aside..."
+            dup = self.courses_dict[key]
+            dup.move_aside()
+            print "Adding back as %s." % dup.get_key()
+            self.courses_dict[dup.get_key()] = dup
+            
+        print "Adding %s." % key
+        self.courses_dict[key] = course
     
     def scrape_single_course(self):
         sel = self.selenium
