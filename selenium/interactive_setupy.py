@@ -32,7 +32,7 @@ sel.open(solus_url)
 sel.select_frame("name=TargetContent")
         
 #"Search For Classes"
-sel.click("id=DERIVED_SSS_SCL_SSS_GO_4$229$")
+sel.click("id=DERIVED_SSS_SCL_SSS_GO_4$230$")
 sel.wait_for_page_to_load("30000")
         
 #"browse course catalog"
