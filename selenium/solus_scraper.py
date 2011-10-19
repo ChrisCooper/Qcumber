@@ -232,7 +232,7 @@ class selenium_export(unittest.TestCase):
         
         while sel.is_element_present(link_name):
             #Store subject title
-            m = re.search("^(.*) - (.*)$", sel.get_text(link_name).strip())
+            m = re.search("^([^-]*) - (.*)$", sel.get_text(link_name).strip())
             
             subject_key = m.group(1)
             subject_title = m.group(2)
