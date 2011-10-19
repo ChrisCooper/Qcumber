@@ -40,13 +40,17 @@ class selenium_export(unittest.TestCase):
         # Test parameters
         #
         
+        self.json_output_file_name = "courses.json"
+        
+        self.timeout_milliseconds = "300000"
+        
         
         #Mode - scrape site vs. read from file (for data crunching)
         self.should_read_from_file = False
         self.read_file_name = "courses 10-14.json"
         
         #Indenting in Json - None, or a number of spaces
-        self.json_indent = 2
+        self.json_indent = None
         
         #Which letters of courses to go through
         #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -121,6 +125,7 @@ class selenium_export(unittest.TestCase):
         self.selenium = selenium("localhost", 4444, "*chrome", "https://sso.queensu.ca/amserver/UI/Login")
         self.selenium.start()
         
+        self.selenium.set_timeout(self.timeout_milliseconds)
         
         print "Opening login page..."
         
@@ -142,7 +147,7 @@ class selenium_export(unittest.TestCase):
         #Log in
         print "Logging in..."
         sel.click("name=Login.Submit")
-        sel.wait_for_page_to_load("30000")
+        sel.wait_for_page_to_load(self.timeout_milliseconds)
         
         #Get URL for SOLUS and open it
         print "Opening SOLUS..."
@@ -155,12 +160,12 @@ class selenium_export(unittest.TestCase):
         #"Search For Classes"
         print "Navigating to \"Search For Classes\"..."
         sel.click("id=DERIVED_SSS_SCL_SSS_GO_4$230$")
-        sel.wait_for_page_to_load("30000")
+        sel.wait_for_page_to_load(self.timeout_milliseconds)
         
         #"browse course catalog"
         print "Navigating to \"browse course catalog\"..."
         sel.click("link=browse course catalog")
-        sel.wait_for_page_to_load("30000")
+        sel.wait_for_page_to_load(self.timeout_milliseconds)
         
         
         print "Navigation to SOLUS complete. Beginning scraping..."
@@ -206,7 +211,7 @@ class selenium_export(unittest.TestCase):
         json_dict["courses"] = [self.courses_dict[k].jsonable() for k in self.courses_dict.keys()]
         
         
-        with open("courses-indented.json", "w") as f:
+        with open(self.json_output_file_name, "w") as f:
             f.write(json.dumps(json_dict, indent=self.json_indent))
         
     
@@ -217,7 +222,7 @@ class selenium_export(unittest.TestCase):
     def scrape_subjects_for_alphanum(self, alphanum):
         sel = self.selenium
         sel.click("id=DERIVED_SSS_BCC_SSR_ALPHANUM_" + alphanum)
-        sel.wait_for_page_to_load("30000")
+        sel.wait_for_page_to_load(self.timeout_milliseconds)
         
         
         #Prepare to traverse all links
@@ -239,7 +244,7 @@ class selenium_export(unittest.TestCase):
             
             #Open the dropdown
             sel.click(link_name)
-            sel.wait_for_page_to_load("30000")
+            sel.wait_for_page_to_load(self.timeout_milliseconds)
             
             #Traverses all course links in the dropdown
             self.scrape_single_dropdown()
@@ -251,7 +256,7 @@ class selenium_export(unittest.TestCase):
                 print "FAILURE %s" % link_name
                 time.sleep(100)
                 
-            sel.wait_for_page_to_load("30000")
+            sel.wait_for_page_to_load(self.timeout_milliseconds)
             
             #Go to next link
             link_number += 1
@@ -275,7 +280,7 @@ class selenium_export(unittest.TestCase):
         while sel.is_element_present(link_name):
             #Go into the course
             sel.click(link_name)
-            sel.wait_for_page_to_load("30000")
+            sel.wait_for_page_to_load(self.timeout_milliseconds)
             
             self.course = SolusModels.SolusCourse()
         
@@ -299,7 +304,7 @@ class selenium_export(unittest.TestCase):
             
             #Back out from course page
             sel.click("id=DERIVED_SAA_CRS_RETURN_PB")
-            sel.wait_for_page_to_load("30000")
+            sel.wait_for_page_to_load(self.timeout_milliseconds)
             
             #Go to next course
             link_number += 1
@@ -471,7 +476,7 @@ class selenium_export(unittest.TestCase):
         if sel.is_element_present("id=DERIVED_SAA_CRS_SSR_PB_GO"):
             
             sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO")
-            sel.wait_for_page_to_load("30000")
+            sel.wait_for_page_to_load(self.timeout_milliseconds)
             
             self.course.is_scheduled = True
             
@@ -488,7 +493,7 @@ class selenium_export(unittest.TestCase):
             if not len(term_options) == 1:
                 sel.select("id=DERIVED_SAA_CRS_TERM_ALT", "label=%s" % option)
                 sel.click("id=DERIVED_SAA_CRS_SSR_PB_GO$92$")
-                sel.wait_for_page_to_load("30000")
+                sel.wait_for_page_to_load(self.timeout_milliseconds)
             
             
             self.current_term = SolusModels.term_index_by_key(option)
@@ -503,7 +508,7 @@ class selenium_export(unittest.TestCase):
         
         if sel.is_element_present("id=CLASS_TBL_VW5$fviewall$0"):
             sel.click("id=CLASS_TBL_VW5$fviewall$0")
-            sel.wait_for_page_to_load("30000")
+            sel.wait_for_page_to_load(self.timeout_milliseconds)
 
         self.scrape_section_page()
         
