@@ -1,0 +1,20 @@
+Scraped a total of:
+156 Subjects
+8140 Courses
+18 Section Types
+5 Terms
+379 Timeslots
+
+Unique Attributes were:
+(0 100): Typically Offered
+(0 100): Career
+(0 100): Grading Basis
+(0 409): Add Consent
+(0 100): Course Components
+(0 100): Units
+(0 416): Drop Consent
+(0 100): Enrollment Requirement
+.
+----------------------------------------------------------------------
+Ran 1 test in 28707.665s
+
