@@ -1,3 +1,0 @@
--Create process for loading python state from JSON, so no scraping is required to test data processing
-
--Make SectionComponent->Timeslot relationship
