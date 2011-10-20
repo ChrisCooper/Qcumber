@@ -44,7 +44,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {511, 348}}</string>
+				<string key="NSWindowRect">{{573, 381}, {572, 395}}</string>
 				<int key="NSWTFlags">544735232</int>
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -56,7 +56,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSBox" id="590232684">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">12</int>
+							<int key="NSvFlags">18</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSView" id="107566576">
@@ -66,9 +66,9 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSProgressIndicator" id="732024694">
 											<reference key="NSNextResponder" ref="107566576"/>
-											<int key="NSvFlags">1292</int>
+											<int key="NSvFlags">1290</int>
 											<object class="NSPSMatrix" key="NSDrawMatrix"/>
-											<string key="NSFrame">{{115, 83}, {224, 20}}</string>
+											<string key="NSFrame">{{146, 123}, {224, 20}}</string>
 											<reference key="NSSuperview" ref="107566576"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="533145621"/>
@@ -77,8 +77,8 @@
 										</object>
 										<object class="NSTextField" id="533145621">
 											<reference key="NSNextResponder" ref="107566576"/>
-											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{54, 14}, {347, 65}}</string>
+											<int key="NSvFlags">274</int>
+											<string key="NSFrame">{{15, 14}, {486, 105}}</string>
 											<reference key="NSSuperview" ref="107566576"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView"/>
@@ -114,13 +114,13 @@
 											</object>
 										</object>
 									</object>
-									<string key="NSFrame">{{1, 1}, {455, 163}}</string>
+									<string key="NSFrame">{{1, 1}, {516, 193}}</string>
 									<reference key="NSSuperview" ref="590232684"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="732024694"/>
 								</object>
 							</object>
-							<string key="NSFrame">{{27, 26}, {457, 179}}</string>
+							<string key="NSFrame">{{27, 21}, {518, 209}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="107566576"/>
@@ -169,7 +169,7 @@
 									<string>NeXT TIFF v4.0 pasteboard type</string>
 								</object>
 							</object>
-							<string key="NSFrame">{{20, 206}, {461, 135}}</string>
+							<string key="NSFrame">{{56, 243}, {461, 135}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="590232684"/>
@@ -189,12 +189,12 @@
 							<bool key="NSEditable">YES</bool>
 						</object>
 					</object>
-					<string key="NSFrameSize">{511, 348}</string>
+					<string key="NSFrameSize">{572, 395}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="778741495"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
 			</object>
 		</object>
@@ -245,8 +245,8 @@
 						<reference key="object" ref="1006"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="590232684"/>
 							<reference ref="778741495"/>
+							<reference ref="590232684"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -302,6 +302,8 @@
 					<string>-1.IBPluginDependency</string>
 					<string>-2.IBPluginDependency</string>
 					<string>-3.IBPluginDependency</string>
+					<string>1.IBNSWindowAutoPositionCentersHorizontal</string>
+					<string>1.IBNSWindowAutoPositionCentersVertical</string>
 					<string>1.IBPluginDependency</string>
 					<string>1.IBWindowTemplateEditedContentRect</string>
 					<string>1.NSWindowTemplate.visibleAtLaunch</string>
@@ -318,6 +320,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{357, 418}, {480, 270}}</string>
 					<integer value="1"/>

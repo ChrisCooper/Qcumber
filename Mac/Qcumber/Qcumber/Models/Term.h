@@ -1,5 +1,5 @@
 //
-//  Course.h
+//  Term.h
 //  Qcumber
 //
 //  Created by Chris Cooper on 11-10-19.
@@ -9,28 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Section, Subject;
+@class Section;
 
-@interface Course : NSManagedObject {
-
+@interface Term : NSManagedObject {
 @private
-
 }
-
-@property (nonatomic, retain) NSString * desc;
-@property (nonatomic, retain) NSString * key;
-@property (nonatomic, retain) NSString * num;
-@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * season;
+@property (nonatomic, retain) NSString * year;
 @property (nonatomic, retain) NSSet *sections;
-@property (nonatomic, retain) Subject *subject;
-
 @end
 
-@interface Course (CoreDataGeneratedAccessors)
+@interface Term (CoreDataGeneratedAccessors)
 
 - (void)addSectionsObject:(Section *)value;
 - (void)removeSectionsObject:(Section *)value;
 - (void)addSections:(NSSet *)values;
 - (void)removeSections:(NSSet *)values;
-
 @end

@@ -1,22 +1,18 @@
 //
-//  Course.m
+//  SectionType.m
 //  Qcumber
 //
 //  Created by Chris Cooper on 11-10-19.
 //  Copyright (c) 2011 Chris Cooper. All rights reserved.
 //
 
-#import "Course.h"
+#import "SectionType.h"
 #import "Section.h"
-#import "Subject.h"
 
 
-@implementation Course
-@dynamic desc;
-@dynamic key;
-@dynamic num;
-@dynamic title;
+@implementation SectionType
+@dynamic abbr;
+@dynamic name;
 @dynamic sections;
-@dynamic subject;
 
 @end

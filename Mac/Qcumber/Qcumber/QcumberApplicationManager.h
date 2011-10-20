@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class CourseUpdateWindowController;
+
 @interface QcumberApplicationManager : NSObject {
+    CourseUpdateWindowController *updateWindowContorller_;
+    
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
     NSManagedObjectContext *__managedObjectContext;

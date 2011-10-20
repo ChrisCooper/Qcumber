@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="844" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Course" representedClassName="">
+    <entity name="Course" representedClassName="Course">
         <attribute name="desc" optional="YES" attributeType="String" indexed="YES"/>
         <attribute name="key" optional="YES" attributeType="String" indexed="YES"/>
         <attribute name="num" optional="YES" attributeType="String" indexed="YES"/>
@@ -8,7 +8,7 @@
         <relationship name="sections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Section" inverseName="course" inverseEntity="Section"/>
         <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Subject" inverseName="courses" inverseEntity="Subject"/>
     </entity>
-    <entity name="Section">
+    <entity name="Section" representedClassName="Section">
         <attribute name="id" optional="YES" attributeType="String" indexed="YES"/>
         <attribute name="index" optional="YES" attributeType="String" indexed="YES"/>
         <relationship name="components" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SectionComponent" inverseName="section" inverseEntity="SectionComponent"/>
@@ -16,7 +16,7 @@
         <relationship name="term" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Term" inverseName="sections" inverseEntity="Term"/>
         <relationship name="type" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SectionType" inverseName="sections" inverseEntity="SectionType"/>
     </entity>
-    <entity name="SectionComponent">
+    <entity name="SectionComponent" representedClassName="SectionComponent">
         <attribute name="end_date" optional="YES" attributeType="String" indexed="YES"/>
         <attribute name="instructor" optional="YES" attributeType="String" indexed="YES"/>
         <attribute name="room" optional="YES" attributeType="String" indexed="YES"/>
@@ -24,33 +24,34 @@
         <relationship name="section" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Section" inverseName="components" inverseEntity="Section"/>
         <relationship name="timeslot" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Timeslot" inverseName="sectionComponents" inverseEntity="Timeslot"/>
     </entity>
-    <entity name="SectionType">
+    <entity name="SectionType" representedClassName="SectionType">
+        <attribute name="abbr" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="sections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Section" inverseName="type" inverseEntity="Section"/>
     </entity>
-    <entity name="Subject">
+    <entity name="Subject" representedClassName="Subject">
         <attribute name="abbreviation" optional="YES" attributeType="String" indexed="YES"/>
         <attribute name="title" optional="YES" attributeType="String" indexed="YES"/>
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="subject" inverseEntity="Course"/>
     </entity>
-    <entity name="Term">
+    <entity name="Term" representedClassName="Term">
         <attribute name="season" optional="YES" attributeType="String" indexed="YES"/>
         <attribute name="year" optional="YES" attributeType="String" maxValueString="4" indexed="YES"/>
         <relationship name="sections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Section" inverseName="term" inverseEntity="Section"/>
     </entity>
-    <entity name="Timeslot">
-        <attribute name="day" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="4" defaultValueString="0" indexed="YES"/>
+    <entity name="Timeslot" representedClassName="Timeslot">
+        <attribute name="day" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="6" defaultValueString="0" indexed="YES"/>
         <attribute name="end" optional="YES" attributeType="String" indexed="YES"/>
         <attribute name="start" optional="YES" attributeType="String" indexed="YES"/>
         <relationship name="sectionComponents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SectionComponent" inverseName="timeslot" inverseEntity="SectionComponent"/>
     </entity>
     <elements>
-        <element name="Course" positionX="-261" positionY="-405" width="128" height="135"/>
-        <element name="Section" positionX="-63" positionY="-342" width="128" height="135"/>
-        <element name="SectionComponent" positionX="160" positionY="-315" width="128" height="135"/>
-        <element name="SectionType" positionX="106" positionY="198" width="128" height="75"/>
-        <element name="Subject" positionX="-56" positionY="171" width="128" height="90"/>
-        <element name="Term" positionX="-281" positionY="171" width="128" height="90"/>
-        <element name="Timeslot" positionX="232" positionY="-135" width="128" height="150"/>
+        <element name="Course" positionX="-290" positionY="-216" width="128" height="135"/>
+        <element name="Section" positionX="-288" positionY="-54" width="128" height="135"/>
+        <element name="SectionComponent" positionX="-281" positionY="126" width="128" height="135"/>
+        <element name="SectionType" positionX="223" positionY="-63" width="128" height="90"/>
+        <element name="Subject" positionX="-126" positionY="-216" width="128" height="90"/>
+        <element name="Term" positionX="18" positionY="-198" width="128" height="90"/>
+        <element name="Timeslot" positionX="162" positionY="-186" width="128" height="105"/>
     </elements>
 </model>

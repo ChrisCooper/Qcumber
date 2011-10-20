@@ -7,6 +7,7 @@
 //
 
 #import "QcumberApplicationManager.h"
+#import "CourseUpdateWindowController.h"
 
 @implementation QcumberApplicationManager
 
@@ -19,6 +20,12 @@
     if (self) {
         NSLog(@"Initializing QcumberApplicationManager");
     }
+    
+    updateWindowContorller_ = [[CourseUpdateWindowController alloc] initWithWindowNibName:@"CourseUpdateWindowController"];
+    NSWindow *updateWindow = [updateWindowContorller_ window];
+    [updateWindowContorller_ showWindow:updateWindow];
+    [updateWindow makeKeyWindow];
+    [updateWindow makeMainWindow];
     
     return self;
 }
