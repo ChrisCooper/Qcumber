@@ -8,6 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface CourseUpdateWindowController : NSWindowController
+@interface CourseUpdateWindowController : NSWindowController {
+
+}
+
+@property (assign) IBOutlet NSProgressIndicator *progressIndicator;
+@property (assign) IBOutlet NSTextField *progressTextField;
 
 @end
