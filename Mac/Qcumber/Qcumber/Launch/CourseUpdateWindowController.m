@@ -29,8 +29,6 @@
     
 }
 
--(NSString*)windowTitleForDocumentDisplayName:(NSString *)displayName {
-    
-}
+//-(NSString*)windowTitleForDocumentDisplayName:(NSString *)displayName {
 
 @end
