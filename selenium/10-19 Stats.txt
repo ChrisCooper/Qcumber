@@ -6,12 +6,12 @@ Scraped a total of:
 379 Timeslots
 
 Unique Attributes were:
-(0 100): Typically Offered
-(0 100): Career
-(0 100): Grading Basis
+(0 100): Typically Offered (Ignore)
+(0 100): Career (Ignore)
+(0 100): Grading Basis (Investigate)
 (0 409): Add Consent
-(0 100): Course Components
-(0 100): Units
+(0 100): Course Components (Investigate)
+(0 100): Units (Investigate)
 (0 416): Drop Consent
 (0 100): Enrollment Requirement
 .
