@@ -40,7 +40,7 @@ class selenium_export(unittest.TestCase):
         # Test parameters
         #
         
-        self.json_output_file_name = "courses.json"
+        self.json_output_file_name_prefix = "courses"
         
         self.timeout_milliseconds = "300000"
         
@@ -50,15 +50,15 @@ class selenium_export(unittest.TestCase):
         self.read_file_name = "courses 10-14.json"
         
         #Indenting in Json - None, or a number of spaces
-        self.json_indent = None
+        self.json_indent = 2
         
         #Which letters of courses to go through
         #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        self.alphanums = "U"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
-        self.max_subjects_per_letter = 0
+        self.max_subjects_per_letter = 2
         
         #Which index of subject dropdowns to start at in a given alphanum
         self.starting_subject_index = 0
@@ -211,9 +211,13 @@ class selenium_export(unittest.TestCase):
         json_dict["courses"] = [self.courses_dict[k].jsonable() for k in self.courses_dict.keys()]
         
         
+        #Add the filename extension
+        self.json_output_file_name = "%s%s" % (self.json_output_file_name_prefix, "-indented.json" if self.json_indent else ".json")
+        
         with open(self.json_output_file_name, "w") as f:
             f.write(json.dumps(json_dict, indent=self.json_indent))
         
+        print "JSON written to %s" % self.json_output_file_name
     
     #
     # Alphanum
@@ -239,24 +243,28 @@ class selenium_export(unittest.TestCase):
             
             print "\nSubject: %s: %s" % (subject_key, subject_title)
             
-            self.subject_index = SolusModels.subject_index_by_key(subject_key)
-            SolusModels.Subject.subjects[self.subject_index].title = subject_title
-            
-            #Open the dropdown
-            sel.click(link_name)
-            sel.wait_for_page_to_load(self.timeout_milliseconds)
-            
-            #Traverses all course links in the dropdown
-            self.scrape_single_dropdown()
-            
-            #Close the dropdown
-            try:
-                sel.click(link_name)
-            except:
-                print "FAILURE %s" % link_name
-                time.sleep(100)
+            if subject_key != "NIL" and subject_key != "UNSP":
+                self.subject_index = SolusModels.subject_index_by_key(subject_key)
+                SolusModels.Subject.subjects[self.subject_index].title = subject_title
                 
-            sel.wait_for_page_to_load(self.timeout_milliseconds)
+                #Open the dropdown
+                sel.click(link_name)
+                sel.wait_for_page_to_load(self.timeout_milliseconds)
+                
+                #Traverses all course links in the dropdown
+                self.scrape_single_dropdown()
+            
+                #Close the dropdown
+                try:
+                    sel.click(link_name)
+                except:
+                    print "FAILURE %s" % link_name
+                    time.sleep(100)
+                
+                sel.wait_for_page_to_load(self.timeout_milliseconds)
+            else:
+                print "Ignored"
+            
             
             #Go to next link
             link_number += 1
