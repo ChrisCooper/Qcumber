@@ -40,21 +40,23 @@ class selenium_export(unittest.TestCase):
         # Test parameters
         #
         
-        self.json_output_file_name_prefix = "courses"
+        self.json_output_file_name_prefix = "courses-11-19"
         
         self.timeout_milliseconds = "300000"
         
         
         #Mode - scrape site vs. read from file (for data crunching)
         self.should_read_from_file = False
-        self.read_file_name = "courses 10-14.json"
+        self.read_file_name = "courses 11-08.json"
         
         #Indenting in Json - None, or a number of spaces
         self.json_indent = 2
         
+        self.ignored_subjects = ["NIL", "UNSP"]
+        
         #Which letters of courses to go through
         #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "U"
+        self.alphanums = "A"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
@@ -106,6 +108,19 @@ class selenium_export(unittest.TestCase):
         print len(self.courses_dict)
     
     def optimize_data(self):
+        
+        
+        units_dict = {}
+        
+        for key, course in self.courses_dict.iteritems():
+            pass    
+            
+            #units = course.unique_attributes["Units"]
+            #if units not in units_dict:
+            #    units_dict[units] = key
+            
+        #print units_dict
+        
         pass
         
     
@@ -217,7 +232,7 @@ class selenium_export(unittest.TestCase):
         with open(self.json_output_file_name, "w") as f:
             f.write(json.dumps(json_dict, indent=self.json_indent))
         
-        print "JSON written to %s" % self.json_output_file_name
+        print "\nJSON written to %s" % self.json_output_file_name
     
     #
     # Alphanum
@@ -243,7 +258,7 @@ class selenium_export(unittest.TestCase):
             
             print "\nSubject: %s: %s" % (subject_key, subject_title)
             
-            if subject_key != "NIL" and subject_key != "UNSP":
+            if subject_key not in self.ignored_subjects:
                 self.subject_index = SolusModels.subject_index_by_key(subject_key)
                 SolusModels.Subject.subjects[self.subject_index].title = subject_title
                 
@@ -426,35 +441,85 @@ class selenium_export(unittest.TestCase):
         
         info_mappings = {}
         
-        for (title_text, title_pos) in titles:
+        
+        #Add to unique list
+        for (title_text, title_pos_x, title_pos_y) in titles:
             if title_text not in self.unique_attributes:
                 self.unique_attributes[title_text] = "%s %s" % (self.course.subject, self.course.num)
 
         
-        for (value_text, value_pos) in values:
+        #Match values to titles
+        for (value_text, value_pos_x, value_pos_y) in values:
             
             best_diff = 10000
             best_text = None
-            for (title_text, title_pos) in titles:
-                diff = abs(title_pos - value_pos)
-                if value_pos > title_pos - 5 and diff < best_diff:
+            for (title_text, title_pos_x, title_pos_y) in titles:
+                diff = abs(title_pos_y - value_pos_y)
+                if value_pos_y > title_pos_y - 5 and diff < best_diff:
                     best_diff = diff
                     best_text = title_text
                 
+            #Add the value to the info mapping for that title
             if best_text:
-                if best_text in info_mappings:
-                    info_mappings[best_text] += " " + value_text
+                if best_text == "Course Components":
+                    #Add both the value and the vertical position, for matching values later
+                    if best_text in info_mappings:
+                        info_mappings[best_text].append((value_text, value_pos_x, value_pos_y))
+                    else:
+                        info_mappings[best_text] = [(value_text, value_pos_x, value_pos_y)]
                 else:
-                    info_mappings[best_text] = value_text
+                    if best_text in info_mappings:
+                        info_mappings[best_text] += " " + value_text
+                    else:
+                        info_mappings[best_text] = value_text
             else:
                 print "No match for %s" % value_text
+        
+        final_components = {}
+        
+        
+        
+        if "Course Components" in info_mappings:
+            components = info_mappings["Course Components"]
+            
+            for (component_text, component_pos_x, component_pos_y) in components:
+            
+                best_diff = 10000
+                best_text = None
+                
+                for (value_text, value_pos_x, value_pos_y) in components:
+                    
+                    #Make sure it's only added once
+                    if component_pos_x >= value_pos_x - 10:
+                        continue
+                    
+                    diff = abs(component_pos_y - value_pos_y)
+                    if diff < best_diff:
+                        best_diff = diff
+                        best_text = value_text
+                
+                if best_text:
+                    final_components[component_text] = value_text
+                
+        print "Components:"
+        print final_components
+        
+        info_mappings["Course Components"] = final_components
+        
+        #Assign the values to the course
+        for info_key, info_value in info_mappings.iteritems():
+            if info_key in SolusModels.info_mappings_simple_keys:
+                attribute_name = SolusModels.info_mappings_simple_keys[key]
+                setattr(self.course, attribute_name, value)
+        
+        #course.info_mappings = info_mappings
                 
     def add_entries_for_position(self, lis, locator_format_string):
         sel = self.selenium
         index = 1
         locator = locator_format_string % index
         while sel.is_element_present(locator):
-            lis.append((sel.get_text(locator).strip(), sel.get_element_position_top(locator)))
+            lis.append((sel.get_text(locator).strip(), sel.get_element_position_left(locator), sel.get_element_position_top(locator)))
                     
             index += 1
             locator = locator_format_string % index

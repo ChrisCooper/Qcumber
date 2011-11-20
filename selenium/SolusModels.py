@@ -1,5 +1,21 @@
 import re
 
+info_mappings_simple_keys = {"Units": "units",
+                             "Grading Basis": "grading_basis",
+                             "Add Consent": "add_consent",
+                             "Course Components": "course_componenets",
+                             "Drop Consent": "drop_consent",
+                             "Enrollment Requirement": "enrollment_requirement",
+                             }
+info_mappings_json_keys = {"units": "u",
+                           "grading_basis": "g",
+                           "add_consent": "ac",
+                           "course_componenets": "c",
+                           "drop_consent": "dc",
+                           "enrollment_requirement": "e",
+                           }
+
+
 class SolusCourse:
     
     num_courses = 0
@@ -18,6 +34,13 @@ class SolusCourse:
             self.sections = []
             for section_dict in course_dict["sec"]:
                 self.sections.append(Section(section_dict))
+                
+            #info_mappings
+            for variable, json in info_mappings_json_keys.iteritems():
+                if json in course_dict:
+                    setattr(self, variable, course_dict[json])
+            
+            
             return
         
         self.title = ""
@@ -26,6 +49,10 @@ class SolusCourse:
         
         self.subject = ""
         self.sections = []
+        
+        #info_mappings
+        for human, variable_name in info_mappings_simple_keys.iteritems():
+            setattr(self, variable_name, "")
         
         #for debugging
         self.subject_description = ""
@@ -67,6 +94,12 @@ class SolusCourse:
         print self.description
         for section in self.sections:
             section.describe()
+        
+        #info mappings
+        for human, variable in info_mappings_simple_keys.iteritems():
+            val = getattr(self, variable)
+            if val:
+                print "%s: %s" % (human, val)
     
     def jsonable(self):
         d = {}
@@ -76,7 +109,16 @@ class SolusCourse:
         
         d["s"] = self.subject
         d["sec"] = [section.jsonable() for section in self.sections]
+        
+        #info_mappings
+        for variable, json in info_mappings_json_keys.iteritems():
+            val = getattr(self, variable)
+            if val:
+                d[json] = val
+        
         return d
+
+
 
 
 class Section:
@@ -138,7 +180,7 @@ class SectionComponent:
         self.instructor = self.instructor.replace(" \n ", " ")
     
     def describe(self):
-        print u"%s, %s-%s in %s, with %s. %s" % (self.self.start_date, self.end_date, self.room, self.instructor, self.timeslot)
+        print u"%s-%s in %s, with %s. %s" % (self.start_date, self.end_date, self.room, self.instructor, self.timeslot)
     
     def jsonable(self):
         d = {}
