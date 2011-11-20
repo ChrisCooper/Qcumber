@@ -67,7 +67,7 @@ class selenium_export(unittest.TestCase):
         
         #Optional cap for number of courses per subject to scrape
         #Set to 0 to have no cap
-        self.max_courses_per_subject = 0
+        self.max_courses_per_subject = 10
         
         #Which index of coursesto start at in a given subject
         self.starting_course_index = 0
@@ -112,17 +112,14 @@ class selenium_export(unittest.TestCase):
         
         units_dict = {}
         
-        for key, course in self.courses_dict.iteritems():
-            pass    
+        for course_code, course in self.courses_dict.iteritems():
             
-            #units = course.unique_attributes["Units"]
-            #if units not in units_dict:
-            #    units_dict[units] = key
+            units = course.units
+            if units not in units_dict:
+                units_dict[units] = course_code
             
-        #print units_dict
-        
-        pass
-        
+        print "Units:"
+        print units_dict
     
     def test_selenium_export(self):
         
@@ -509,8 +506,8 @@ class selenium_export(unittest.TestCase):
         #Assign the values to the course
         for info_key, info_value in info_mappings.iteritems():
             if info_key in SolusModels.info_mappings_simple_keys:
-                attribute_name = SolusModels.info_mappings_simple_keys[key]
-                setattr(self.course, attribute_name, value)
+                attribute_name = SolusModels.info_mappings_simple_keys[info_key]
+                setattr(self.course, attribute_name, info_value)
         
         #course.info_mappings = info_mappings
                 
