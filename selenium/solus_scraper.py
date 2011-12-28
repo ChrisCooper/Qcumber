@@ -40,7 +40,7 @@ class selenium_export(unittest.TestCase):
         # Test parameters
         #
         
-        self.json_output_file_name_prefix = "courses-11-19"
+        self.json_output_file_name_prefix = "courses-11-20"
         
         self.timeout_milliseconds = "300000"
         
@@ -56,18 +56,18 @@ class selenium_export(unittest.TestCase):
         
         #Which letters of courses to go through
         #self.alphanums = String.ascii_uppercase + String.digits #"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        self.alphanums = "A"
+        self.alphanums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         
         #Optional cap for number of subjects per letter to scrape
         #Set to 0 to have no cap
-        self.max_subjects_per_letter = 2
+        self.max_subjects_per_letter = 0
         
         #Which index of subject dropdowns to start at in a given alphanum
         self.starting_subject_index = 0
         
         #Optional cap for number of courses per subject to scrape
         #Set to 0 to have no cap
-        self.max_courses_per_subject = 10
+        self.max_courses_per_subject = 0
         
         #Which index of coursesto start at in a given subject
         self.starting_course_index = 0

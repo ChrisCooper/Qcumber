@@ -3,3 +3,5 @@ ignored_files/
 *.json
 xcuserdata
 *.DS_Store
+Old\ mac
+selenium/*Stats.txt
