@@ -18,7 +18,10 @@
 		83FEB12914ADB2DB009E4A28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FEB10614ADB2DB009E4A28 /* Cocoa.framework */; };
 		83FEB13114ADB2DB009E4A28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB12F14ADB2DB009E4A28 /* InfoPlist.strings */; };
 		83FEB13414ADB2DB009E4A28 /* QcumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB13314ADB2DB009E4A28 /* QcumberTests.m */; };
-		83FEB13F14ADB363009E4A28 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB13E14ADB363009E4A28 /* SearchViewController.xib */; };
+		83FEB14514ADB89C009E4A28 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB14314ADB89C009E4A28 /* SearchViewController.m */; };
+		83FEB14814ADB8C9009E4A28 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB14714ADB8C9009E4A28 /* SearchViewController.xib */; };
+		83FEB14C14ADBA5A009E4A28 /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB14A14ADBA5A009E4A28 /* CourseDetailViewController.m */; };
+		83FEB14D14ADBA5A009E4A28 /* CourseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB14B14ADBA5A009E4A28 /* CourseDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +56,12 @@
 		83FEB13214ADB2DB009E4A28 /* QcumberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QcumberTests.h; sourceTree = "<group>"; };
 		83FEB13314ADB2DB009E4A28 /* QcumberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QcumberTests.m; sourceTree = "<group>"; };
 		83FEB13D14ADB307009E4A28 /* Qcumber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Qcumber.entitlements; sourceTree = "<group>"; };
-		83FEB13E14ADB363009E4A28 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		83FEB14214ADB89C009E4A28 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controllers/SearchViewController.h; sourceTree = "<group>"; };
+		83FEB14314ADB89C009E4A28 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
+		83FEB14714ADB8C9009E4A28 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchViewController.xib; path = Controllers/SearchViewController.xib; sourceTree = "<group>"; };
+		83FEB14914ADBA5A009E4A28 /* CourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDetailViewController.h; path = Controllers/CourseDetailViewController.h; sourceTree = "<group>"; };
+		83FEB14A14ADBA5A009E4A28 /* CourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDetailViewController.m; path = Controllers/CourseDetailViewController.m; sourceTree = "<group>"; };
+		83FEB14B14ADBA5A009E4A28 /* CourseDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseDetailViewController.xib; path = Controllers/CourseDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +131,12 @@
 				83FEB11814ADB2DB009E4A28 /* QcumberDocument.h */,
 				83FEB11914ADB2DB009E4A28 /* QcumberDocument.m */,
 				83FEB11B14ADB2DB009E4A28 /* QcumberDocument.xib */,
-				83FEB13E14ADB363009E4A28 /* SearchViewController.xib */,
+				83FEB14914ADBA5A009E4A28 /* CourseDetailViewController.h */,
+				83FEB14A14ADBA5A009E4A28 /* CourseDetailViewController.m */,
+				83FEB14B14ADBA5A009E4A28 /* CourseDetailViewController.xib */,
+				83FEB14214ADB89C009E4A28 /* SearchViewController.h */,
+				83FEB14314ADB89C009E4A28 /* SearchViewController.m */,
+				83FEB14714ADB8C9009E4A28 /* SearchViewController.xib */,
 				83FEB11E14ADB2DB009E4A28 /* MainMenu.xib */,
 				83FEB10D14ADB2DB009E4A28 /* Supporting Files */,
 			);
@@ -235,7 +248,8 @@
 				83FEB11714ADB2DB009E4A28 /* Credits.rtf in Resources */,
 				83FEB11D14ADB2DB009E4A28 /* QcumberDocument.xib in Resources */,
 				83FEB12014ADB2DB009E4A28 /* MainMenu.xib in Resources */,
-				83FEB13F14ADB363009E4A28 /* SearchViewController.xib in Resources */,
+				83FEB14814ADB8C9009E4A28 /* SearchViewController.xib in Resources */,
+				83FEB14D14ADBA5A009E4A28 /* CourseDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +286,8 @@
 			files = (
 				83FEB11314ADB2DB009E4A28 /* main.m in Sources */,
 				83FEB11A14ADB2DB009E4A28 /* QcumberDocument.m in Sources */,
+				83FEB14514ADB89C009E4A28 /* SearchViewController.m in Sources */,
+				83FEB14C14ADBA5A009E4A28 /* CourseDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +404,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Qcumber/Qcumber.entitlements;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qcumber/Qcumber-Prefix.pch";
 				INFOPLIST_FILE = "Qcumber/Qcumber-Info.plist";
@@ -401,7 +416,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Qcumber/Qcumber.entitlements;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Qcumber/Qcumber-Prefix.pch";
 				INFOPLIST_FILE = "Qcumber/Qcumber-Info.plist";
