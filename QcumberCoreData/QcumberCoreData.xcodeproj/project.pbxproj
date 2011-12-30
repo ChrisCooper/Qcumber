@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83FEB15E14ADBC4B009E4A28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FEB15D14ADBC4B009E4A28 /* Cocoa.framework */; };
+		83FEB16814ADBC4B009E4A28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB16614ADBC4B009E4A28 /* InfoPlist.strings */; };
+		83FEB16A14ADBC4B009E4A28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB16914ADBC4B009E4A28 /* main.m */; };
+		83FEB16E14ADBC4B009E4A28 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB16C14ADBC4B009E4A28 /* Credits.rtf */; };
+		83FEB17114ADBC4B009E4A28 /* QcumberCDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB17014ADBC4B009E4A28 /* QcumberCDAppDelegate.m */; };
+		83FEB17414ADBC4B009E4A28 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB17214ADBC4B009E4A28 /* MainMenu.xib */; };
+		83FEB17714ADBC4B009E4A28 /* QcumberCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB17514ADBC4B009E4A28 /* QcumberCoreData.xcdatamodeld */; };
+		83FEB17F14ADBC4B009E4A28 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FEB17E14ADBC4B009E4A28 /* SenTestingKit.framework */; };
+		83FEB18014ADBC4B009E4A28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FEB15D14ADBC4B009E4A28 /* Cocoa.framework */; };
+		83FEB18814ADBC4B009E4A28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB18614ADBC4B009E4A28 /* InfoPlist.strings */; };
+		83FEB18B14ADBC4B009E4A28 /* QcumberCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB18A14ADBC4B009E4A28 /* QcumberCoreDataTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83FEB18114ADBC4B009E4A28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83FEB15014ADBC4B009E4A28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83FEB15814ADBC4B009E4A28;
+			remoteInfo = QcumberCoreData;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		83FEB15914ADBC4B009E4A28 /* QcumberCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QcumberCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83FEB15D14ADBC4B009E4A28 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		83FEB16014ADBC4B009E4A28 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		83FEB16114ADBC4B009E4A28 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		83FEB16214ADBC4B009E4A28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83FEB16514ADBC4B009E4A28 /* QcumberCoreData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QcumberCoreData-Info.plist"; sourceTree = "<group>"; };
+		83FEB16714ADBC4B009E4A28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83FEB16914ADBC4B009E4A28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83FEB16B14ADBC4B009E4A28 /* QcumberCoreData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QcumberCoreData-Prefix.pch"; sourceTree = "<group>"; };
+		83FEB16D14ADBC4B009E4A28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		83FEB16F14ADBC4B009E4A28 /* QcumberCDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QcumberCDAppDelegate.h; sourceTree = "<group>"; };
+		83FEB17014ADBC4B009E4A28 /* QcumberCDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QcumberCDAppDelegate.m; sourceTree = "<group>"; };
+		83FEB17314ADBC4B009E4A28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		83FEB17614ADBC4B009E4A28 /* QcumberCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QcumberCoreData.xcdatamodel; sourceTree = "<group>"; };
+		83FEB17D14ADBC4B009E4A28 /* QcumberCoreDataTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QcumberCoreDataTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83FEB17E14ADBC4B009E4A28 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		83FEB18514ADBC4B009E4A28 /* QcumberCoreDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QcumberCoreDataTests-Info.plist"; sourceTree = "<group>"; };
+		83FEB18714ADBC4B009E4A28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83FEB18914ADBC4B009E4A28 /* QcumberCoreDataTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QcumberCoreDataTests.h; sourceTree = "<group>"; };
+		83FEB18A14ADBC4B009E4A28 /* QcumberCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QcumberCoreDataTests.m; sourceTree = "<group>"; };
+		83FEB19414ADBC57009E4A28 /* QcumberCoreData.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = QcumberCoreData.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83FEB15614ADBC4B009E4A28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83FEB15E14ADBC4B009E4A28 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83FEB17914ADBC4B009E4A28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83FEB17F14ADBC4B009E4A28 /* SenTestingKit.framework in Frameworks */,
+				83FEB18014ADBC4B009E4A28 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83FEB14E14ADBC4B009E4A28 = {
+			isa = PBXGroup;
+			children = (
+				83FEB16314ADBC4B009E4A28 /* QcumberCoreData */,
+				83FEB18314ADBC4B009E4A28 /* QcumberCoreDataTests */,
+				83FEB15C14ADBC4B009E4A28 /* Frameworks */,
+				83FEB15A14ADBC4B009E4A28 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83FEB15A14ADBC4B009E4A28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83FEB15914ADBC4B009E4A28 /* QcumberCoreData.app */,
+				83FEB17D14ADBC4B009E4A28 /* QcumberCoreDataTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83FEB15C14ADBC4B009E4A28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83FEB15D14ADBC4B009E4A28 /* Cocoa.framework */,
+				83FEB17E14ADBC4B009E4A28 /* SenTestingKit.framework */,
+				83FEB15F14ADBC4B009E4A28 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83FEB15F14ADBC4B009E4A28 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83FEB16014ADBC4B009E4A28 /* AppKit.framework */,
+				83FEB16114ADBC4B009E4A28 /* CoreData.framework */,
+				83FEB16214ADBC4B009E4A28 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		83FEB16314ADBC4B009E4A28 /* QcumberCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				83FEB19414ADBC57009E4A28 /* QcumberCoreData.entitlements */,
+				83FEB16F14ADBC4B009E4A28 /* QcumberCDAppDelegate.h */,
+				83FEB17014ADBC4B009E4A28 /* QcumberCDAppDelegate.m */,
+				83FEB17214ADBC4B009E4A28 /* MainMenu.xib */,
+				83FEB17514ADBC4B009E4A28 /* QcumberCoreData.xcdatamodeld */,
+				83FEB16414ADBC4B009E4A28 /* Supporting Files */,
+			);
+			path = QcumberCoreData;
+			sourceTree = "<group>";
+		};
+		83FEB16414ADBC4B009E4A28 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83FEB16514ADBC4B009E4A28 /* QcumberCoreData-Info.plist */,
+				83FEB16614ADBC4B009E4A28 /* InfoPlist.strings */,
+				83FEB16914ADBC4B009E4A28 /* main.m */,
+				83FEB16B14ADBC4B009E4A28 /* QcumberCoreData-Prefix.pch */,
+				83FEB16C14ADBC4B009E4A28 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83FEB18314ADBC4B009E4A28 /* QcumberCoreDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				83FEB18914ADBC4B009E4A28 /* QcumberCoreDataTests.h */,
+				83FEB18A14ADBC4B009E4A28 /* QcumberCoreDataTests.m */,
+				83FEB18414ADBC4B009E4A28 /* Supporting Files */,
+			);
+			path = QcumberCoreDataTests;
+			sourceTree = "<group>";
+		};
+		83FEB18414ADBC4B009E4A28 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83FEB18514ADBC4B009E4A28 /* QcumberCoreDataTests-Info.plist */,
+				83FEB18614ADBC4B009E4A28 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83FEB15814ADBC4B009E4A28 /* QcumberCoreData */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83FEB18E14ADBC4B009E4A28 /* Build configuration list for PBXNativeTarget "QcumberCoreData" */;
+			buildPhases = (
+				83FEB15514ADBC4B009E4A28 /* Sources */,
+				83FEB15614ADBC4B009E4A28 /* Frameworks */,
+				83FEB15714ADBC4B009E4A28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QcumberCoreData;
+			productName = QcumberCoreData;
+			productReference = 83FEB15914ADBC4B009E4A28 /* QcumberCoreData.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83FEB17C14ADBC4B009E4A28 /* QcumberCoreDataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83FEB19114ADBC4B009E4A28 /* Build configuration list for PBXNativeTarget "QcumberCoreDataTests" */;
+			buildPhases = (
+				83FEB17814ADBC4B009E4A28 /* Sources */,
+				83FEB17914ADBC4B009E4A28 /* Frameworks */,
+				83FEB17A14ADBC4B009E4A28 /* Resources */,
+				83FEB17B14ADBC4B009E4A28 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83FEB18214ADBC4B009E4A28 /* PBXTargetDependency */,
+			);
+			name = QcumberCoreDataTests;
+			productName = QcumberCoreDataTests;
+			productReference = 83FEB17D14ADBC4B009E4A28 /* QcumberCoreDataTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83FEB15014ADBC4B009E4A28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 83FEB15314ADBC4B009E4A28 /* Build configuration list for PBXProject "QcumberCoreData" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83FEB14E14ADBC4B009E4A28;
+			productRefGroup = 83FEB15A14ADBC4B009E4A28 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83FEB15814ADBC4B009E4A28 /* QcumberCoreData */,
+				83FEB17C14ADBC4B009E4A28 /* QcumberCoreDataTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83FEB15714ADBC4B009E4A28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83FEB16814ADBC4B009E4A28 /* InfoPlist.strings in Resources */,
+				83FEB16E14ADBC4B009E4A28 /* Credits.rtf in Resources */,
+				83FEB17414ADBC4B009E4A28 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83FEB17A14ADBC4B009E4A28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83FEB18814ADBC4B009E4A28 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		83FEB17B14ADBC4B009E4A28 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83FEB15514ADBC4B009E4A28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83FEB16A14ADBC4B009E4A28 /* main.m in Sources */,
+				83FEB17114ADBC4B009E4A28 /* QcumberCDAppDelegate.m in Sources */,
+				83FEB17714ADBC4B009E4A28 /* QcumberCoreData.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83FEB17814ADBC4B009E4A28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83FEB18B14ADBC4B009E4A28 /* QcumberCoreDataTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83FEB18214ADBC4B009E4A28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83FEB15814ADBC4B009E4A28 /* QcumberCoreData */;
+			targetProxy = 83FEB18114ADBC4B009E4A28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83FEB16614ADBC4B009E4A28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83FEB16714ADBC4B009E4A28 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83FEB16C14ADBC4B009E4A28 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83FEB16D14ADBC4B009E4A28 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		83FEB17214ADBC4B009E4A28 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83FEB17314ADBC4B009E4A28 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		83FEB18614ADBC4B009E4A28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83FEB18714ADBC4B009E4A28 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83FEB18C14ADBC4B009E4A28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		83FEB18D14ADBC4B009E4A28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		83FEB18F14ADBC4B009E4A28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QcumberCoreData/QcumberCoreData.entitlements;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QcumberCoreData/QcumberCoreData-Prefix.pch";
+				INFOPLIST_FILE = "QcumberCoreData/QcumberCoreData-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		83FEB19014ADBC4B009E4A28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QcumberCoreData/QcumberCoreData.entitlements;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QcumberCoreData/QcumberCoreData-Prefix.pch";
+				INFOPLIST_FILE = "QcumberCoreData/QcumberCoreData-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		83FEB19214ADBC4B009E4A28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QcumberCoreData.app/Contents/MacOS/QcumberCoreData";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QcumberCoreData/QcumberCoreData-Prefix.pch";
+				INFOPLIST_FILE = "QcumberCoreDataTests/QcumberCoreDataTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		83FEB19314ADBC4B009E4A28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QcumberCoreData.app/Contents/MacOS/QcumberCoreData";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QcumberCoreData/QcumberCoreData-Prefix.pch";
+				INFOPLIST_FILE = "QcumberCoreDataTests/QcumberCoreDataTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83FEB15314ADBC4B009E4A28 /* Build configuration list for PBXProject "QcumberCoreData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83FEB18C14ADBC4B009E4A28 /* Debug */,
+				83FEB18D14ADBC4B009E4A28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83FEB18E14ADBC4B009E4A28 /* Build configuration list for PBXNativeTarget "QcumberCoreData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83FEB18F14ADBC4B009E4A28 /* Debug */,
+				83FEB19014ADBC4B009E4A28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		83FEB19114ADBC4B009E4A28 /* Build configuration list for PBXNativeTarget "QcumberCoreDataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83FEB19214ADBC4B009E4A28 /* Debug */,
+				83FEB19314ADBC4B009E4A28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		83FEB17514ADBC4B009E4A28 /* QcumberCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				83FEB17614ADBC4B009E4A28 /* QcumberCoreData.xcdatamodel */,
+			);
+			currentVersion = 83FEB17614ADBC4B009E4A28 /* QcumberCoreData.xcdatamodel */;
+			path = QcumberCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 83FEB15014ADBC4B009E4A28 /* Project object */;
+}
