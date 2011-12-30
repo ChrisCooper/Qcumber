@@ -18,6 +18,8 @@
 		BF290A17147B35640072300C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2909F4147B35630072300C /* Cocoa.framework */; };
 		BF290A1F147B35640072300C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF290A1D147B35640072300C /* InfoPlist.strings */; };
 		BF290A22147B35640072300C /* QcumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF290A21147B35640072300C /* QcumberTests.m */; };
+		BF3FA1E714AC01AA00133048 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3FA1E614AC01AA00133048 /* SearchView.xib */; };
+		BF3FA1EA14AC070E00133048 /* CourseDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3FA1E914AC070E00133048 /* CourseDetailView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		BF290A20147B35640072300C /* QcumberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QcumberTests.h; sourceTree = "<group>"; };
 		BF290A21147B35640072300C /* QcumberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QcumberTests.m; sourceTree = "<group>"; };
 		BF290A2B147B3C5F0072300C /* Qcumber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Qcumber.entitlements; sourceTree = "<group>"; };
+		BF3FA1E614AC01AA00133048 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		BF3FA1E914AC070E00133048 /* CourseDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				BF290A06147B35630072300C /* QcumberDocument.h */,
 				BF290A07147B35630072300C /* QcumberDocument.m */,
 				BF290A09147B35630072300C /* QcumberDocument.xib */,
+				BF3FA1E614AC01AA00133048 /* SearchView.xib */,
+				BF3FA1E914AC070E00133048 /* CourseDetailView.xib */,
 				BF290A0C147B35640072300C /* MainMenu.xib */,
 				BF2909FB147B35630072300C /* Supporting Files */,
 			);
@@ -233,6 +239,8 @@
 				BF290A05147B35630072300C /* Credits.rtf in Resources */,
 				BF290A0B147B35630072300C /* QcumberDocument.xib in Resources */,
 				BF290A0E147B35640072300C /* MainMenu.xib in Resources */,
+				BF3FA1E714AC01AA00133048 /* SearchView.xib in Resources */,
+				BF3FA1EA14AC070E00133048 /* CourseDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +462,7 @@
 				BF290A27147B35640072300C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF290A28147B35640072300C /* Build configuration list for PBXNativeTarget "QcumberTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +471,7 @@
 				BF290A2A147B35640072300C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
