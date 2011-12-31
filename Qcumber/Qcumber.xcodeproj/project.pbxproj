@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		831CAB1514AFA2BD00B4402A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CAB1414AFA2BD00B4402A /* Course.m */; };
+		831CAB1914AFA47800B4402A /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CAB1814AFA47800B4402A /* Subject.m */; };
+		831CAB1C14AFA57700B4402A /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CAB1B14AFA57700B4402A /* Section.m */; };
+		831CAB1F14AFA95C00B4402A /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CAB1E14AFA95C00B4402A /* Term.m */; };
+		831CAB2214AFAD3900B4402A /* SectionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CAB2114AFAD3800B4402A /* SectionType.m */; };
+		831CAB2514AFB2C200B4402A /* Timeslot.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CAB2414AFB2C200B4402A /* Timeslot.m */; };
+		831CAB2814AFBC9B00B4402A /* SectionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CAB2714AFBC9B00B4402A /* SectionComponent.m */; };
+		835B09B914ADC32400511A7A /* Generating.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 835B09B714ADC32400511A7A /* Generating.xcdatamodeld */; };
 		83FEB10714ADB2DB009E4A28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FEB10614ADB2DB009E4A28 /* Cocoa.framework */; };
 		83FEB11114ADB2DB009E4A28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB10F14ADB2DB009E4A28 /* InfoPlist.strings */; };
 		83FEB11314ADB2DB009E4A28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB11214ADB2DB009E4A28 /* main.m */; };
@@ -35,6 +43,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		831CAB1314AFA2BD00B4402A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = Models/Course.h; sourceTree = "<group>"; };
+		831CAB1414AFA2BD00B4402A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Models/Course.m; sourceTree = "<group>"; };
+		831CAB1714AFA47800B4402A /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subject.h; path = Models/Subject.h; sourceTree = "<group>"; };
+		831CAB1814AFA47800B4402A /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subject.m; path = Models/Subject.m; sourceTree = "<group>"; };
+		831CAB1A14AFA57700B4402A /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Section.h; path = Models/Section.h; sourceTree = "<group>"; };
+		831CAB1B14AFA57700B4402A /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Section.m; path = Models/Section.m; sourceTree = "<group>"; };
+		831CAB1D14AFA95C00B4402A /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Term.h; path = Models/Term.h; sourceTree = "<group>"; };
+		831CAB1E14AFA95C00B4402A /* Term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Term.m; path = Models/Term.m; sourceTree = "<group>"; };
+		831CAB2014AFAD3800B4402A /* SectionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionType.h; path = Models/SectionType.h; sourceTree = "<group>"; };
+		831CAB2114AFAD3800B4402A /* SectionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionType.m; path = Models/SectionType.m; sourceTree = "<group>"; };
+		831CAB2314AFB2C200B4402A /* Timeslot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timeslot.h; path = Models/Timeslot.h; sourceTree = "<group>"; };
+		831CAB2414AFB2C200B4402A /* Timeslot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timeslot.m; path = Models/Timeslot.m; sourceTree = "<group>"; };
+		831CAB2614AFBC9B00B4402A /* SectionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionComponent.h; path = Models/SectionComponent.h; sourceTree = "<group>"; };
+		831CAB2714AFBC9B00B4402A /* SectionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionComponent.m; path = Models/SectionComponent.m; sourceTree = "<group>"; };
+		835B09B814ADC32400511A7A /* Generating.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Generating.xcdatamodel; sourceTree = "<group>"; };
 		83FEB10214ADB2DB009E4A28 /* Qcumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qcumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FEB10614ADB2DB009E4A28 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		83FEB10914ADB2DB009E4A28 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -85,6 +108,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		835B09B414ADC2D500511A7A /* Pane Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				83FEB14914ADBA5A009E4A28 /* CourseDetailViewController.h */,
+				83FEB14A14ADBA5A009E4A28 /* CourseDetailViewController.m */,
+				83FEB14B14ADBA5A009E4A28 /* CourseDetailViewController.xib */,
+				83FEB14214ADB89C009E4A28 /* SearchViewController.h */,
+				83FEB14314ADB89C009E4A28 /* SearchViewController.m */,
+				83FEB14714ADB8C9009E4A28 /* SearchViewController.xib */,
+			);
+			name = "Pane Controllers";
+			sourceTree = "<group>";
+		};
+		835B09B614ADC2ED00511A7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				835B09B714ADC32400511A7A /* Generating.xcdatamodeld */,
+				831CAB1714AFA47800B4402A /* Subject.h */,
+				831CAB1814AFA47800B4402A /* Subject.m */,
+				831CAB1314AFA2BD00B4402A /* Course.h */,
+				831CAB1414AFA2BD00B4402A /* Course.m */,
+				831CAB1A14AFA57700B4402A /* Section.h */,
+				831CAB1B14AFA57700B4402A /* Section.m */,
+				831CAB2614AFBC9B00B4402A /* SectionComponent.h */,
+				831CAB2714AFBC9B00B4402A /* SectionComponent.m */,
+				831CAB1D14AFA95C00B4402A /* Term.h */,
+				831CAB1E14AFA95C00B4402A /* Term.m */,
+				831CAB2014AFAD3800B4402A /* SectionType.h */,
+				831CAB2114AFAD3800B4402A /* SectionType.m */,
+				831CAB2314AFB2C200B4402A /* Timeslot.h */,
+				831CAB2414AFB2C200B4402A /* Timeslot.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		83FEB0F714ADB2DB009E4A28 = {
 			isa = PBXGroup;
 			children = (
@@ -127,16 +185,12 @@
 		83FEB10C14ADB2DB009E4A28 /* Qcumber */ = {
 			isa = PBXGroup;
 			children = (
+				835B09B614ADC2ED00511A7A /* Models */,
+				835B09B414ADC2D500511A7A /* Pane Controllers */,
 				83FEB13D14ADB307009E4A28 /* Qcumber.entitlements */,
 				83FEB11814ADB2DB009E4A28 /* QcumberDocument.h */,
 				83FEB11914ADB2DB009E4A28 /* QcumberDocument.m */,
 				83FEB11B14ADB2DB009E4A28 /* QcumberDocument.xib */,
-				83FEB14914ADBA5A009E4A28 /* CourseDetailViewController.h */,
-				83FEB14A14ADBA5A009E4A28 /* CourseDetailViewController.m */,
-				83FEB14B14ADBA5A009E4A28 /* CourseDetailViewController.xib */,
-				83FEB14214ADB89C009E4A28 /* SearchViewController.h */,
-				83FEB14314ADB89C009E4A28 /* SearchViewController.m */,
-				83FEB14714ADB8C9009E4A28 /* SearchViewController.xib */,
 				83FEB11E14ADB2DB009E4A28 /* MainMenu.xib */,
 				83FEB10D14ADB2DB009E4A28 /* Supporting Files */,
 			);
@@ -288,6 +342,14 @@
 				83FEB11A14ADB2DB009E4A28 /* QcumberDocument.m in Sources */,
 				83FEB14514ADB89C009E4A28 /* SearchViewController.m in Sources */,
 				83FEB14C14ADBA5A009E4A28 /* CourseDetailViewController.m in Sources */,
+				835B09B914ADC32400511A7A /* Generating.xcdatamodeld in Sources */,
+				831CAB1514AFA2BD00B4402A /* Course.m in Sources */,
+				831CAB1914AFA47800B4402A /* Subject.m in Sources */,
+				831CAB1C14AFA57700B4402A /* Section.m in Sources */,
+				831CAB1F14AFA95C00B4402A /* Term.m in Sources */,
+				831CAB2214AFAD3900B4402A /* SectionType.m in Sources */,
+				831CAB2514AFB2C200B4402A /* Timeslot.m in Sources */,
+				831CAB2814AFBC9B00B4402A /* SectionComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +533,7 @@
 				83FEB13914ADB2DB009E4A28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83FEB13A14ADB2DB009E4A28 /* Build configuration list for PBXNativeTarget "QcumberTests" */ = {
 			isa = XCConfigurationList;
@@ -479,8 +542,22 @@
 				83FEB13C14ADB2DB009E4A28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		835B09B714ADC32400511A7A /* Generating.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				835B09B814ADC32400511A7A /* Generating.xcdatamodel */,
+			);
+			currentVersion = 835B09B814ADC32400511A7A /* Generating.xcdatamodel */;
+			path = Generating.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 83FEB0F914ADB2DB009E4A28 /* Project object */;
 }

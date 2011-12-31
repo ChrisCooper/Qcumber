@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Course" syncable="YES">
+        <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="section" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="course" inverseEntity="Section" syncable="YES"/>
+        <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="courses" inverseEntity="Subject" syncable="YES"/>
+    </entity>
+    <entity name="Section" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="course" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="section" inverseEntity="Course" syncable="YES"/>
+    </entity>
+    <entity name="SectionComponent" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="instructor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="SectionType" syncable="YES">
+        <attribute name="abbreviation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Subject" syncable="YES">
+        <attribute name="abbreviation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="courses" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="subject" inverseEntity="Course" syncable="YES"/>
+    </entity>
+    <entity name="Term" syncable="YES">
+        <attribute name="season" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Timeslot" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="end_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="start_time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Course" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Section" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="SectionComponent" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="SectionType" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Subject" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Term" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Timeslot" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>
