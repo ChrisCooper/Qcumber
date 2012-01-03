@@ -2,22 +2,30 @@
 //  Section.h
 //  Qcumber
 //
-//  Created by Chris Cooper on 11-12-31.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chris Cooper on 12-01-01.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-#import "Term.h"
-#import "SectionType.h"
+@class SectionComponent;
 
-@interface Section : NSObject
+@interface Section : NSManagedObject
 
-@property (assign) int index;
-@property (assign) int id;
+@property (nonatomic, strong) NSNumber * id;
+@property (nonatomic, strong) NSNumber * index;
+@property (nonatomic, strong) NSManagedObject *course;
+@property (nonatomic, strong) NSManagedObject *type;
+@property (nonatomic, strong) NSManagedObject *term;
+@property (nonatomic, strong) NSSet *components;
+@end
 
-@property (weak) Term *term;
-@property (weak) SectionType *type;
-@property (strong) NSArray *components;
+@interface Section (CoreDataGeneratedAccessors)
+
+- (void)addComponentsObject:(SectionComponent *)value;
+- (void)removeComponentsObject:(SectionComponent *)value;
+- (void)addComponents:(NSSet *)values;
+- (void)removeComponents:(NSSet *)values;
 
 @end

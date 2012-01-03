@@ -2,19 +2,22 @@
 //  SectionComponent.h
 //  Qcumber
 //
-//  Created by Chris Cooper on 11-12-31.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chris Cooper on 12-01-01.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#include "Timeslot.h"
+#import <CoreData/CoreData.h>
 
-@interface SectionComponent : NSObject
+@class Timeslot;
 
-@property (strong) NSString *room;
-@property (strong) NSString *instructor;
-@property (strong) NSString *startDate;
-@property (strong) NSString *endDate;
-@property (weak) Timeslot *timeslot;
+@interface SectionComponent : NSManagedObject
+
+@property (nonatomic, strong) NSDate * endDate;
+@property (nonatomic, strong) NSString * instructor;
+@property (nonatomic, strong) NSString * room;
+@property (nonatomic, strong) NSDate * startDate;
+@property (nonatomic, strong) Timeslot *timeslot;
+@property (nonatomic, strong) NSManagedObject *section;
 
 @end

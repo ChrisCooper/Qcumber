@@ -2,19 +2,21 @@
 //  Course.m
 //  Qcumber
 //
-//  Created by Chris Cooper on 11-12-31.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chris Cooper on 12-01-01.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Course.h"
+#import "Section.h"
+#import "Subject.h"
+
 
 @implementation Course
 
-@synthesize title;
-@synthesize descr;
-@synthesize number;
-
-@synthesize sections;
-@synthesize subject;
+@dynamic descr;
+@dynamic number;
+@dynamic title;
+@dynamic sections;
+@dynamic subject;
 
 @end

@@ -2,16 +2,18 @@
 //  Timeslot.m
 //  Qcumber
 //
-//  Created by Chris Cooper on 11-12-31.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chris Cooper on 12-01-01.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Timeslot.h"
 
+
 @implementation Timeslot
 
-@synthesize day;
-@synthesize start;
-@synthesize end;
+@dynamic day;
+@dynamic end_time;
+@dynamic start_time;
+@dynamic sectionComponents;
 
 @end

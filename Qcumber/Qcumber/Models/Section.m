@@ -2,19 +2,21 @@
 //  Section.m
 //  Qcumber
 //
-//  Created by Chris Cooper on 11-12-31.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chris Cooper on 12-01-01.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Section.h"
+#import "SectionComponent.h"
+
 
 @implementation Section
 
-@synthesize index;
-@synthesize id;
-
-@synthesize term;
-@synthesize type;
-@synthesize components;
+@dynamic id;
+@dynamic index;
+@dynamic course;
+@dynamic type;
+@dynamic term;
+@dynamic components;
 
 @end

@@ -2,15 +2,27 @@
 //  SectionType.h
 //  Qcumber
 //
-//  Created by Chris Cooper on 11-12-31.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chris Cooper on 12-01-01.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface SectionType : NSObject
+@class Section;
 
-@property (strong) NSString *abbreviation;
-@property (strong) NSString *name;
+@interface SectionType : NSManagedObject
+
+@property (nonatomic, strong) NSString * abbreviation;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSSet *sections;
+@end
+
+@interface SectionType (CoreDataGeneratedAccessors)
+
+- (void)addSectionsObject:(Section *)value;
+- (void)removeSectionsObject:(Section *)value;
+- (void)addSections:(NSSet *)values;
+- (void)removeSections:(NSSet *)values;
 
 @end

@@ -2,15 +2,18 @@
 //  Term.m
 //  Qcumber
 //
-//  Created by Chris Cooper on 11-12-31.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chris Cooper on 12-01-01.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Term.h"
+#import "Section.h"
+
 
 @implementation Term
 
-@synthesize season;
-@synthesize year;
+@dynamic season;
+@dynamic year;
+@dynamic sections;
 
 @end
