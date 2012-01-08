@@ -40,16 +40,17 @@
 					<object class="NSTextField" id="110705998">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{104, 495}, {250, 54}}</string>
+						<string key="NSFrame">{{104, 418}, {250, 54}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:360</string>
 						<string key="NSAntiCompressionPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="262832713">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">138674176</int>
-							<string key="NSContents">Multiline Label</string>
+							<string key="NSContents">CISC 235 - Investigations in Applicable Acedemic Observations of Computer Phenomena</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
@@ -78,9 +79,10 @@
 						</object>
 					</object>
 				</array>
-				<string key="NSFrameSize">{497, 569}</string>
+				<string key="NSFrameSize">{442, 492}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="110705998"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 		</array>

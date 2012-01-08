@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		835B09B914ADC32400511A7A /* Generating.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 835B09B714ADC32400511A7A /* Generating.xcdatamodeld */; };
+		838F4F3714B93B9E00DCB859 /* CourseSearchCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 838F4F3514B93B9E00DCB859 /* CourseSearchCellView.m */; };
+		838F4F3814B93B9E00DCB859 /* CourseSearchCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 838F4F3614B93B9E00DCB859 /* CourseSearchCellView.xib */; };
 		8394179914B136510030F4C4 /* LibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8394179814B136510030F4C4 /* LibraryManager.m */; };
 		8394179C14B156D20030F4C4 /* Timeslot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8394179B14B156D20030F4C4 /* Timeslot.m */; };
 		8394179F14B156D20030F4C4 /* SectionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8394179E14B156D20030F4C4 /* SectionComponent.m */; };
@@ -45,6 +47,9 @@
 
 /* Begin PBXFileReference section */
 		835B09B814ADC32400511A7A /* Generating.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Generating.xcdatamodel; sourceTree = "<group>"; };
+		838F4F3414B93B9E00DCB859 /* CourseSearchCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseSearchCellView.h; path = CourseSearch/CourseSearchCellView.h; sourceTree = "<group>"; };
+		838F4F3514B93B9E00DCB859 /* CourseSearchCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseSearchCellView.m; path = CourseSearch/CourseSearchCellView.m; sourceTree = "<group>"; };
+		838F4F3614B93B9E00DCB859 /* CourseSearchCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseSearchCellView.xib; path = CourseSearch/CourseSearchCellView.xib; sourceTree = "<group>"; };
 		8394179714B136510030F4C4 /* LibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryManager.h; path = Managers/LibraryManager.h; sourceTree = "<group>"; };
 		8394179814B136510030F4C4 /* LibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LibraryManager.m; path = Managers/LibraryManager.m; sourceTree = "<group>"; };
 		8394179A14B156D20030F4C4 /* Timeslot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timeslot.h; path = Models/Timeslot.h; sourceTree = "<group>"; };
@@ -146,6 +151,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		838F4F3214B93B1700DCB859 /* CourseSearchView */ = {
+			isa = PBXGroup;
+			children = (
+				838F4F3414B93B9E00DCB859 /* CourseSearchCellView.h */,
+				838F4F3514B93B9E00DCB859 /* CourseSearchCellView.m */,
+				838F4F3614B93B9E00DCB859 /* CourseSearchCellView.xib */,
+			);
+			name = CourseSearchView;
+			sourceTree = "<group>";
+		};
 		839417AF14B156EA0030F4C4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +212,7 @@
 		83FEB10C14ADB2DB009E4A28 /* Qcumber */ = {
 			isa = PBXGroup;
 			children = (
+				838F4F3214B93B1700DCB859 /* CourseSearchView */,
 				839417AF14B156EA0030F4C4 /* Managers */,
 				835B09B614ADC2ED00511A7A /* Models */,
 				835B09B414ADC2D500511A7A /* Pane Controllers */,
@@ -317,6 +333,7 @@
 				83FEB12014ADB2DB009E4A28 /* MainMenu.xib in Resources */,
 				83FEB14814ADB8C9009E4A28 /* SearchViewController.xib in Resources */,
 				83FEB14D14ADBA5A009E4A28 /* CourseDetailViewController.xib in Resources */,
+				838F4F3814B93B9E00DCB859 /* CourseSearchCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +381,7 @@
 				839417A814B156D20030F4C4 /* Term.m in Sources */,
 				839417AB14B156D20030F4C4 /* Course.m in Sources */,
 				839417AE14B156D20030F4C4 /* SectionType.m in Sources */,
+				838F4F3714B93B9E00DCB859 /* CourseSearchCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
