@@ -18,6 +18,8 @@
 		839417A814B156D20030F4C4 /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = 839417A714B156D20030F4C4 /* Term.m */; };
 		839417AB14B156D20030F4C4 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 839417AA14B156D20030F4C4 /* Course.m */; };
 		839417AE14B156D20030F4C4 /* SectionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 839417AD14B156D20030F4C4 /* SectionType.m */; };
+		83B6283614B96A30004A08E0 /* CourseSearchAndTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B6283414B96A30004A08E0 /* CourseSearchAndTableViewController.m */; };
+		83B6283714B96A30004A08E0 /* CourseSearchAndTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83B6283514B96A30004A08E0 /* CourseSearchAndTableViewController.xib */; };
 		83FEB10714ADB2DB009E4A28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FEB10614ADB2DB009E4A28 /* Cocoa.framework */; };
 		83FEB11114ADB2DB009E4A28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83FEB10F14ADB2DB009E4A28 /* InfoPlist.strings */; };
 		83FEB11314ADB2DB009E4A28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEB11214ADB2DB009E4A28 /* main.m */; };
@@ -66,6 +68,9 @@
 		839417AA14B156D20030F4C4 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Models/Course.m; sourceTree = "<group>"; };
 		839417AC14B156D20030F4C4 /* SectionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionType.h; path = Models/SectionType.h; sourceTree = "<group>"; };
 		839417AD14B156D20030F4C4 /* SectionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionType.m; path = Models/SectionType.m; sourceTree = "<group>"; };
+		83B6283314B96A30004A08E0 /* CourseSearchAndTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseSearchAndTableViewController.h; path = CourseSearch/CourseSearchAndTableViewController.h; sourceTree = "<group>"; };
+		83B6283414B96A30004A08E0 /* CourseSearchAndTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseSearchAndTableViewController.m; path = CourseSearch/CourseSearchAndTableViewController.m; sourceTree = "<group>"; };
+		83B6283514B96A30004A08E0 /* CourseSearchAndTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseSearchAndTableViewController.xib; path = CourseSearch/CourseSearchAndTableViewController.xib; sourceTree = "<group>"; };
 		83FEB10214ADB2DB009E4A28 /* Qcumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qcumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FEB10614ADB2DB009E4A28 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		83FEB10914ADB2DB009E4A28 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -119,12 +124,6 @@
 		835B09B414ADC2D500511A7A /* Pane Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				83FEB14914ADBA5A009E4A28 /* CourseDetailViewController.h */,
-				83FEB14A14ADBA5A009E4A28 /* CourseDetailViewController.m */,
-				83FEB14B14ADBA5A009E4A28 /* CourseDetailViewController.xib */,
-				83FEB14214ADB89C009E4A28 /* SearchViewController.h */,
-				83FEB14314ADB89C009E4A28 /* SearchViewController.m */,
-				83FEB14714ADB8C9009E4A28 /* SearchViewController.xib */,
 			);
 			name = "Pane Controllers";
 			sourceTree = "<group>";
@@ -154,9 +153,18 @@
 		838F4F3214B93B1700DCB859 /* CourseSearchView */ = {
 			isa = PBXGroup;
 			children = (
+				83B6283314B96A30004A08E0 /* CourseSearchAndTableViewController.h */,
+				83B6283414B96A30004A08E0 /* CourseSearchAndTableViewController.m */,
+				83B6283514B96A30004A08E0 /* CourseSearchAndTableViewController.xib */,
 				838F4F3414B93B9E00DCB859 /* CourseSearchCellView.h */,
 				838F4F3514B93B9E00DCB859 /* CourseSearchCellView.m */,
 				838F4F3614B93B9E00DCB859 /* CourseSearchCellView.xib */,
+				83FEB14914ADBA5A009E4A28 /* CourseDetailViewController.h */,
+				83FEB14A14ADBA5A009E4A28 /* CourseDetailViewController.m */,
+				83FEB14B14ADBA5A009E4A28 /* CourseDetailViewController.xib */,
+				83FEB14214ADB89C009E4A28 /* SearchViewController.h */,
+				83FEB14314ADB89C009E4A28 /* SearchViewController.m */,
+				83FEB14714ADB8C9009E4A28 /* SearchViewController.xib */,
 			);
 			name = CourseSearchView;
 			sourceTree = "<group>";
@@ -334,6 +342,7 @@
 				83FEB14814ADB8C9009E4A28 /* SearchViewController.xib in Resources */,
 				83FEB14D14ADBA5A009E4A28 /* CourseDetailViewController.xib in Resources */,
 				838F4F3814B93B9E00DCB859 /* CourseSearchCellView.xib in Resources */,
+				83B6283714B96A30004A08E0 /* CourseSearchAndTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +391,7 @@
 				839417AB14B156D20030F4C4 /* Course.m in Sources */,
 				839417AE14B156D20030F4C4 /* SectionType.m in Sources */,
 				838F4F3714B93B9E00DCB859 /* CourseSearchCellView.m in Sources */,
+				83B6283614B96A30004A08E0 /* CourseSearchAndTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
